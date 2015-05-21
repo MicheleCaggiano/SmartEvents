@@ -1,0 +1,199 @@
+﻿@import "http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en";
+
+/*#region Variables */
+@Color-Primary: #293846;
+@Color-Label: #676a6c;
+@Color-Disabled: #F3F3F4;
+
+@Margin-BoxBottom: 15px;
+/*#endregion Variables */
+
+/*#region Generals */
+
+body {
+  padding-top: 50px;
+  font-size: 12px;
+  font-family: "Open Sans";
+  background: @Color-Disabled;
+}
+
+.sub-container {
+  margin-top: 85px;
+}
+
+.white-bg {
+  background-color: #FFF;
+}
+
+.row {
+  margin: 0;
+}
+
+/*.navbar-inverse {
+  background: @Color-Primary;
+
+  a, span, i {
+    color: #FFF !important;
+  }
+}
+
+.navbar {
+  ul li {
+    &:hover {
+      cursor: pointer;
+      background: lighten(@Color-Primary, 10%);
+    }
+  }
+}
+  */
+.navbar-right {
+  margin-right: 15px;
+  margin-top: 18px;
+  color: #FFF;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.title {
+  background: none repeat scroll 0 0 #fff;
+  border-bottom: 3px solid @Color-Disabled;
+  margin-bottom: @Margin-BoxBottom;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.box {
+  background: none repeat scroll 0 0 #fff;
+  margin: 0 20px @Margin-BoxBottom;
+  padding: 20px;
+  border-top: 5px solid #eee;
+
+  .row {
+    margin-top: 10px;
+  }
+}
+
+footer {
+  background: none repeat scroll 0 0 #fff;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+  white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+  max-width: 280px;
+}
+
+.form-control, input {
+  border-width: 1px;
+  border-radius: 1px;
+  color: inherit;
+  font-size: 14px;
+  padding: 6px 12px;
+  width: 100%;
+  height: 34px;
+}
+
+/*label, p, span, th, td {
+  color: @Color-Label;
+}*/
+
+h2 {
+  font-size: 28px;
+  font-weight: 100;
+  margin-top: 10px;
+  padding: 10px 15px;
+}
+
+.btn {
+  padding: 5px 10px;
+
+  &.dropdown-toggle {
+    padding: 0 10px 2px;
+  }
+}
+
+/*#endregion Generals */
+
+/*#region Pagination */
+ul.pagination {
+  margin: 0;
+
+  li, li a {
+    color: @Color-Label;
+    background-color: #FFF;
+
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  li {
+    &.disabled a, &.disabled a:hover {
+      background-color: #FFF;
+      color: @Color-Label;
+      border: 1px solid #ddd;
+    }
+  }
+
+  li a {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+  }
+}
+
+/*.pagination > li > a, .pagination > li > span {
+    background-color: #18bc9c;
+    color: #fff;
+    float: left;
+    line-height: 1.42857;
+    margin-left: -1px;
+    padding: 10px 15px;
+    position: relative;
+    text-decoration: none;
+}*/
+/*#endregion Pagination */
+
+/*#region Font-Awesome */
+
+.fa-2x {
+  font-size: 1.5em;
+}
+
+/*#endregion Font-Awesome */
+
+/*#region Bond Index*/
+#bondIndex {
+  table {
+    tr {
+      td {
+        max-width: 147px;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/*#endregion Bond Index*/
+

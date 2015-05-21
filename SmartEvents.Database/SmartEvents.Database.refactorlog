@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <!--<Operation Name="Rename Refactor" Key="56ef2695-68b7-4a8d-a68b-0c1f5e59722f" ChangeDateTime="04/29/2015 10:47:33">
+    <Property Name="ElementName" Value="[Bond].[Bond].[MarketSegment]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MarketSegment_Id" />
+  </Operation>-->
+  <Operation Name="Rename Refactor" Key="3b72b5ec-7d8f-49ff-91b0-4a1b096dd52d" ChangeDateTime="04/29/2015 10:58:30">
+    <Property Name="ElementName" Value="[Bond].[Bond].[Factory]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Factory_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ff84d7a4-fca6-4b25-853f-7ed7d54fb33d" ChangeDateTime="04/29/2015 10:58:40">
+    <Property Name="ElementName" Value="[Bond].[Bond].[ProductLine]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProductLine_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="560d7749-982d-4633-87fe-7c9bf5e1a5f0" ChangeDateTime="04/29/2015 10:58:55">
+    <Property Name="ElementName" Value="[Bond].[Bond].[OriginalEquipment]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OriginalEquipment_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c72b5b3f-0279-40ec-a17f-9b30f95dd7a4" ChangeDateTime="04/29/2015 10:59:27">
+    <Property Name="ElementName" Value="[Bond].[Bond].[OriginType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OriginType_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9e1c49c2-5dc0-4029-bdb0-22028880149e" ChangeDateTime="04/29/2015 10:59:39">
+    <Property Name="ElementName" Value="[Bond].[Bond].[AuditType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AuditType_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7186d1b1-c6fb-4b3a-9b96-818fa74b7d2c" ChangeDateTime="04/29/2015 12:05:06">
+    <Property Name="ElementName" Value="[Bond].[Bond].[Factory_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Factory" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c5e3ce20-62e0-4d24-8189-ffafe866fcfc" ChangeDateTime="04/29/2015 12:05:19">
+    <Property Name="ElementName" Value="[Bond].[Bond].[ProductLine_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProductLine" />
+  </Operation>
+  <!--<Operation Name="Rename Refactor" Key="1db6677d-cd21-4f3e-b0c1-52f7ee34da0a" ChangeDateTime="04/29/2015 12:05:22">
+    <Property Name="ElementName" Value="[Bond].[Bond].[MarketSegment_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MarketSegment" />
+  </Operation>-->
+  <Operation Name="Rename Refactor" Key="2697f82a-3551-4fd8-b7a0-993e43bbe46a" ChangeDateTime="04/29/2015 12:05:46">
+    <Property Name="ElementName" Value="[Bond].[Bond].[OriginalEquipment_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OriginalEquipment" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="aaa7439b-91fb-4629-8434-d9e9f70f1b40" ChangeDateTime="04/29/2015 12:28:19">
+    <Property Name="ElementName" Value="[Bond].[Bond].[OriginType_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OriginType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a13583d2-1294-4969-8996-7d0751af4138" ChangeDateTime="04/29/2015 12:28:25">
+    <Property Name="ElementName" Value="[Bond].[Bond].[AuditType_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AuditType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fd797176-c39f-4e38-be8d-87cae823a4fd" ChangeDateTime="04/29/2015 14:49:28">
+    <Property Name="ElementName" Value="[Bond].[Bond].[OriginalEquipment]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OriginalEquipment_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2370f8ed-fcf3-4f66-b3b5-baa6a6993ab5" ChangeDateTime="04/29/2015 14:49:53">
+    <Property Name="ElementName" Value="[Bond].[Bond].[ProductLine]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProductLine_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="72cc42b7-6f64-4c8e-94aa-c3d8c10ba5ca" ChangeDateTime="04/29/2015 14:56:42">
+    <Property Name="ElementName" Value="[Bond].[Bond].[Factory]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Bond].[Bond]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Factory_Id" />
+  </Operation>
+</Operations>
