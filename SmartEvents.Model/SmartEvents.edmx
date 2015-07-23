@@ -59,6 +59,10 @@
           <EntitySet Name="Events" EntityType="SmartEvents.Event" />
           <EntitySet Name="Lesson" EntityType="SmartEvents.Lesson" />
           <EntitySet Name="Teacher" EntityType="SmartEvents.Teacher" />
+          <AssociationSet Name="EventLesson" Association="SmartEvents.EventLesson">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Event">
           <Key>
@@ -69,6 +73,7 @@
           <Property Name="Description" Type="String" Nullable="true" />
           <Property Name="AuthInfo" Type="SmartEvents.AuthInfo" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Lessons" Relationship="SmartEvents.EventLesson" FromRole="Event" ToRole="Lesson" />
         </EntityType>
         <ComplexType Name="AuthInfo" >
           <Property Type="DateTime" Name="Created" Nullable="false" />
@@ -85,6 +90,8 @@
           <Property Name="Description" Type="String" Nullable="true" />
           <Property Name="AuthInfo" Type="SmartEvents.AuthInfo" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="SmartEvents.EventLesson" FromRole="Lesson" ToRole="Event" />
+          <Property Name="EventId" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -98,6 +105,18 @@
           <Property Name="AuthInfo" Type="SmartEvents.AuthInfo" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
+        <Association Name="EventLesson">
+          <End Type="SmartEvents.Event" Role="Event" Multiplicity="1" />
+          <End Type="SmartEvents.Lesson" Role="Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -166,7 +185,7 @@
     </edmx:Connection>
     <edmx:Options>
       <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="ValidateOnBuild" Value="True" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <DesignerProperty Name="UseLegacyProvider" Value="False" />

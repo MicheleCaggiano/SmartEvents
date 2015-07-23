@@ -6,8 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="742ec78d4bca4a4594cdbdaaeb63818a" Name="Diagram1" DisplayType="true" ShowGrid="true" >
         <EntityTypeShape EntityType="SmartEvents.Event" Width="1.5" PointX="7.625" PointY="5.25" />
-        <EntityTypeShape EntityType="SmartEvents.Lesson" Width="1.5" PointX="10.75" PointY="6.25" />
-        <EntityTypeShape EntityType="SmartEvents.Teacher" Width="1.5" PointX="8.125" PointY="7.875" />
+        <EntityTypeShape EntityType="SmartEvents.Lesson" Width="1.5" PointX="10.625" PointY="5.5" />
+        <EntityTypeShape EntityType="SmartEvents.Teacher" Width="1.5" PointX="8.75" PointY="8.375" />
+        <AssociationConnector Association="SmartEvents.EventLesson" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
