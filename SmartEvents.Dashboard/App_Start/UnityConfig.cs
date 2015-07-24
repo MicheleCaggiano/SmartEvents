@@ -1,12 +1,10 @@
 using System;
 using Microsoft.Practices.Unity;
+using SmartEvents.Dashboard.Controllers;
 using SmartEvents.DAL.Interfaces;
 using SmartEvents.DAL.Repositories;
-using SmartEvents.Infrastructure.Logging;
-using SmartEvents.Infrastructure.Logging.Interfaces;
-using SmartEvents.Website.Controllers;
 
-namespace SmartEvents.Website
+namespace SmartEvents.Dashboard
 {
   /// <summary>
   /// Specifies the Unity configuration for the main container.
@@ -46,9 +44,6 @@ namespace SmartEvents.Website
 
       // Repositories binding
       container.RegisterType(typeof(IRepository<>), typeof(SmartEventsRepository<>));
-
-      // Logger registration: singleton
-      container.RegisterType<ILogger, EnterpriseLibraryLogger>(new ContainerControlledLifetimeManager());
     }
   }
 }

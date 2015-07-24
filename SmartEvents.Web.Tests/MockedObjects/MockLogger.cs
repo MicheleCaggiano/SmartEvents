@@ -5,13 +5,13 @@ using SmartEvents.Infrastructure.Logging.Interfaces;
 
 namespace SmartEvents.Web.Tests.MockedObjects
 {
-    public class MockLogger : IMock<ILogger>
+    public class MockLogger : IMock<ILog>
     {
-        private readonly Mock<ILogger> _mockLogger;
+        private readonly Mock<ILog> _mockLogger;
 
         public MockLogger()
         {
-            _mockLogger = new Mock<ILogger>();
+            _mockLogger = new Mock<ILog>();
             _mockLogger.Setup(x => x.Error(It.IsAny<string>())).Callback((string message) => Error(message));
             _mockLogger.Setup(x => x.Critical(It.IsAny<string>())).Callback((string message) => Critical(message));
             _mockLogger.Setup(x => x.Info(It.IsAny<string>())).Callback((string message) => Info(message));
@@ -63,7 +63,7 @@ namespace SmartEvents.Web.Tests.MockedObjects
             Trace.WriteLine(string.Format(format, args));
         }
 
-        public ILogger Object
+        public ILog Object
         {
             get { return _mockLogger.Object; }
         }

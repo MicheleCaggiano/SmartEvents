@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Web.Optimization;
 
-namespace SmartEvents.Website
+namespace SmartEvents.Dashboard
 {
   public class BundleConfig
   {

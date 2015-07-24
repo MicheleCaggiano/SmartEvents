@@ -1,12 +1,12 @@
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity.Mvc;
-using SmartEvents.Website;
+using SmartEvents.Dashboard;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(UnityWebActivator), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(UnityWebActivator), "Shutdown")]
 
-namespace SmartEvents.Website
+namespace SmartEvents.Dashboard
 {
   /// <summary>Provides the bootstrapping for integrating Unity with ASP.NET MVC.</summary>
   public static class UnityWebActivator

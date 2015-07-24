@@ -14,7 +14,7 @@ namespace SmartEvents.Web.Tests.Controllers
         {
             //Re-registering types
             var container = UnityConfig.GetConfiguredContainer();
-            container.RegisterType<ILogger, EnterpriseLibraryLogger>(new InjectionFactory(uc => new MockLogger().Object));
+            container.RegisterType<ILog, EnterpriseLibraryLogger>(new InjectionFactory(uc => new MockLogger().Object));
         }
     }
 }

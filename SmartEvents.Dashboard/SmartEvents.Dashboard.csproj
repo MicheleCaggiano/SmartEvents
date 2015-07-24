@@ -212,11 +212,12 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\HMTLHelperExtensions.cs" />
+    <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -306,6 +307,9 @@
     <Content Include="Scripts\plugins\metisMenu\jquery.metisMenu.js" />
     <Content Include="Scripts\plugins\pace\pace.min.js" />
     <Content Include="Scripts\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Views\Home\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -318,7 +322,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
@@ -329,7 +333,7 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Minor.cshtml" />
+    <Content Include="Views\Event\Minor.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Shared\_TopNavbar.cshtml" />
@@ -352,6 +356,10 @@
     <ProjectReference Include="..\SmartEvents.BLL\SmartEvents.BLL.csproj">
       <Project>{037bc133-8830-4d92-af4b-ba9c7e5ddeb5}</Project>
       <Name>SmartEvents.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartEvents.DAL\SmartEvents.DAL.csproj">
+      <Project>{a3a0f807-1e76-45f2-a55f-6f23c7c5ed38}</Project>
+      <Name>SmartEvents.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartEvents.Infrastructure\SmartEvents.Infrastructure.csproj">
       <Project>{4c120deb-b1f4-4f13-b4a9-01a186445c5d}</Project>

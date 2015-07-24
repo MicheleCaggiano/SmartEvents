@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace SmartEvents.Website
+namespace SmartEvents.Dashboard
 {
     public class FilterConfig
     {

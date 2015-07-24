@@ -6,60 +6,69 @@ using SmartEvents.Infrastructure.Logging.Interfaces;
 
 namespace SmartEvents.Infrastructure.Logging
 {
-  public class EnterpriseLibraryLogger : ILogger
+  /// <summary>
+  /// Singleton class for application logger
+  /// </summary>
+  public class Log : ILogger
   {
-    public EnterpriseLibraryLogger()
+    private static readonly Log _instance = new Log();
+
+    #region Singleton constructor
+
+    public Log()
     {
       IConfigurationSource configurationSource = ConfigurationSourceFactory.Create();
       var logWriterFactory = new LogWriterFactory(configurationSource);
       var databaseProviderFactory = new DatabaseProviderFactory();
-      databaseProviderFactory.Create("BondSystemContext");
+      databaseProviderFactory.Create("SmartEventsContext");
       DatabaseFactory.SetDatabaseProviderFactory(databaseProviderFactory);
       Logger.SetLogWriter(logWriterFactory.Create());
       WriteMessage("Logger enabled", TraceEventType.Information);
     }
 
-    public void Error(string message)
+    #endregion Singleton constructor
+
+    public static void Error(string message)
     {
       WriteMessage(message, TraceEventType.Error);
     }
 
-    public void ErrorFormat(string message, params object[] args)
+    public static void ErrorFormat(string message, params object[] args)
     {
       Error(string.Format(message, args));
     }
 
-    public void Critical(string message)
+    public static void Critical(string message)
     {
       WriteMessage(message, TraceEventType.Critical);
     }
 
-    public void CriticalFormat(string message, params object[] args)
+    public static void CriticalFormat(string message, params object[] args)
     {
       Critical(string.Format(message, args));
     }
 
-    public void Info(string message)
+    public static void Info(string message)
     {
       WriteMessage(message, TraceEventType.Information);
     }
 
-    public void InfoFormat(string message, params object[] args)
+    public static void InfoFormat(string message, params object[] args)
     {
       Info(string.Format(message, args));
     }
 
-    public void Warning(string message)
+    public static void Warning(string message)
     {
       WriteMessage(message, TraceEventType.Warning);
     }
 
-    public void WarningFormat(string message, params object[] args)
+    public static void WarningFormat(string message, params object[] args)
     {
       Warning(string.Format(message, args));
     }
 
-    private void WriteMessage(string message, TraceEventType severity, int priority = 100)
+    private static void WriteMessage(string message, TraceEventType severity, int priority = 100)
     {
       if (Logger.IsLoggingEnabled())
       {

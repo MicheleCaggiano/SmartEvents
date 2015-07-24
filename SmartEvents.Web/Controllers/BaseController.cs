@@ -8,16 +8,16 @@ namespace SmartEvents.Web.Controllers
 {
   public class BaseController : Controller
   {
-    private readonly ILogger _logger;
+    private readonly ILog _logger;
 
-    public ILogger Log
+    public ILog Log
     {
       get { return _logger; }
     }
 
     public BaseController()
     {
-      _logger = UnityConfig.GetConfiguredContainer().Resolve<ILogger>();
+      _logger = UnityConfig.GetConfiguredContainer().Resolve<ILog>();
     }
 
     protected override void OnException(ExceptionContext context)

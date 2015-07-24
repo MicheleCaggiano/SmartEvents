@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/21/2015 23:41:30
--- Generated from EDMX file: E:\Lavori\Repos\SmartEvents\SmartEvents.Model\SmartEvents.edmx
+-- Date Created: 07/24/2015 15:46:51
+-- Generated from EDMX file: C:\Users\Caggiano\Source\Repos\SmartEvents\SmartEvents.Model\SmartEvents.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [SmartEvents];
+USE [TangOrganizer];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -17,6 +17,9 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_EventLesson]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Lesson] DROP CONSTRAINT [FK_EventLesson];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -36,8 +39,8 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'Events'
-CREATE TABLE [dbo].[Events] (
+-- Creating table 'Event'
+CREATE TABLE [dbo].[Event] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NULL,
@@ -58,7 +61,8 @@ CREATE TABLE [dbo].[Lesson] (
     [AuthInfo_CreatedBy] nvarchar(255)  NOT NULL,
     [AuthInfo_Modified] datetime  NOT NULL,
     [AuthInfo_ModifiedBy] nvarchar(255)  NOT NULL,
-    [IsDeleted] bit  NOT NULL
+    [IsDeleted] bit  NOT NULL,
+    [EventId] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -81,9 +85,9 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [Id] in table 'Events'
-ALTER TABLE [dbo].[Events]
-ADD CONSTRAINT [PK_Events]
+-- Creating primary key on [Id] in table 'Event'
+ALTER TABLE [dbo].[Event]
+ADD CONSTRAINT [PK_Event]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -102,6 +106,21 @@ GO
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
+
+-- Creating foreign key on [EventId] in table 'Lesson'
+ALTER TABLE [dbo].[Lesson]
+ADD CONSTRAINT [FK_EventLesson]
+    FOREIGN KEY ([EventId])
+    REFERENCES [dbo].[Event]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EventLesson'
+CREATE INDEX [IX_FK_EventLesson]
+ON [dbo].[Lesson]
+    ([EventId]);
+GO
 
 -- --------------------------------------------------
 -- Script has ended

@@ -52,7 +52,7 @@ namespace SmartEvents.Web
             //.RegisterType(typeof(IRepository<>), typeof(NetGammaRepository<>), "NetGammaContext");
 
             // Logger registration: singleton
-            container.RegisterType<ILogger, EnterpriseLibraryLogger>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ILog, EnterpriseLibraryLogger>(new ContainerControlledLifetimeManager());
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using SmartEvents.Website.Models;
+using SmartEvents.Dashboard.Models;
 
-namespace SmartEvents.Website.Controllers
+namespace SmartEvents.Dashboard.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -79,7 +79,7 @@ namespace SmartEvents.Website.Controllers
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Event");
                 }
                 else
                 {
@@ -286,7 +286,7 @@ namespace SmartEvents.Website.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Event");
         }
 
         //
@@ -368,7 +368,7 @@ namespace SmartEvents.Website.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Event");
             }
         }
 

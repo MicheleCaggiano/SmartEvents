@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace SmartEvents.Website
+namespace SmartEvents.Dashboard
 {
     public class RouteConfig
     {

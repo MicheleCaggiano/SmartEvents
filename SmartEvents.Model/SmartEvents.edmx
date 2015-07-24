@@ -6,11 +6,15 @@
     <edmx:StorageModels>
     <Schema Namespace="SmartEvents.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="SmartEventsStoreContainer">
-    <EntitySet Name="Events" EntityType="SmartEvents.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Event" EntityType="SmartEvents.Store.Event" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Lesson" EntityType="SmartEvents.Store.Lesson" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Teacher" EntityType="SmartEvents.Store.Teacher" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EventLesson" Association="SmartEvents.Store.EventLesson">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="Lesson" EntitySet="Lesson" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Events">
+  <EntityType Name="Event">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -35,6 +39,7 @@
     <Property Name="AuthInfo_Modified" Type="datetime" Nullable="false" />
     <Property Name="AuthInfo_ModifiedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="EventId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Teacher">
     <Key>
@@ -51,16 +56,28 @@
     <Property Name="AuthInfo_ModifiedBy" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="IsDeleted" Type="bit" Nullable="false" />
   </EntityType>
+  <Association Name="EventLesson">
+    <End Role="Event" Type="SmartEvents.Store.Event" Multiplicity="1" />
+    <End Role="Lesson" Type="SmartEvents.Store.Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SmartEvents" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="SmartEventsContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Events" EntityType="SmartEvents.Event" />
+          <EntitySet Name="Event" EntityType="SmartEvents.Event" />
           <EntitySet Name="Lesson" EntityType="SmartEvents.Lesson" />
           <EntitySet Name="Teacher" EntityType="SmartEvents.Teacher" />
           <AssociationSet Name="EventLesson" Association="SmartEvents.EventLesson">
-            <End Role="Event" EntitySet="Events" />
+            <End Role="Event" EntitySet="Event" />
             <End Role="Lesson" EntitySet="Lesson" />
           </AssociationSet>
         </EntityContainer>
@@ -123,9 +140,9 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SmartEventsStoreContainer" CdmEntityContainer="SmartEventsContext">
-    <EntitySetMapping Name="Events">
+    <EntitySetMapping Name="Event">
       <EntityTypeMapping TypeName="IsTypeOf(SmartEvents.Event)">
-        <MappingFragment StoreEntitySet="Events">
+        <MappingFragment StoreEntitySet="Event">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -152,6 +169,7 @@
             <ScalarProperty Name="ModifiedBy" ColumnName="AuthInfo_ModifiedBy" />
           </ComplexProperty>
           <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

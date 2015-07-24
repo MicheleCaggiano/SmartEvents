@@ -3,7 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace SmartEvents.Website
+namespace SmartEvents.Dashboard
 {
     public partial class Startup
     {

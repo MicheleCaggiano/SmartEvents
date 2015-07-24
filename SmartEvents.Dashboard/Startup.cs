@@ -1,9 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using SmartEvents.Website;
+using SmartEvents.Dashboard;
 
 [assembly: OwinStartup(typeof(Startup))]
-namespace SmartEvents.Website
+namespace SmartEvents.Dashboard
 {
     public partial class Startup
     {
