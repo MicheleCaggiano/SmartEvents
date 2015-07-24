@@ -75,6 +75,13 @@
     <Compile Include="Lesson.cs">
       <DependentUpon>SmartEvents.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Lesson.cs" />
+    <Compile Include="Models\Mapping\EventMap.cs" />
+    <Compile Include="Models\Mapping\LessonMap.cs" />
+    <Compile Include="Models\Mapping\TeacherMap.cs" />
+    <Compile Include="Models\TangOrganizerContext.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmartEvents.Context.cs">
       <AutoGen>True</AutoGen>
