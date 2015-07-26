@@ -68,7 +68,7 @@ if (ReferenceScriptLibraries) {
     if (!IsLayoutPageSelected && IsBundleConfigPresent) {
 #>
 @Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/plugins/validate")
 
 <#
     }

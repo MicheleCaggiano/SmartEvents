@@ -36,7 +36,7 @@ namespace SmartEvents.DAL.Repositories
             return entity;
         }
 
-        public virtual void Delete(object id)
+        public virtual void DeleteById(object id)
         {
             var item = Context.Set<TEntity>().Find(id);
             Context.Set<TEntity>().Remove(item);

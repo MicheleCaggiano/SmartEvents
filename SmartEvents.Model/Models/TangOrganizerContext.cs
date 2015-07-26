@@ -16,15 +16,11 @@ namespace SmartEvents.Model.Models
         {
         }
 
-        public DbSet<Event> Events { get; set; }
-        public DbSet<Lesson> Lessons { get; set; }
-        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Evento> Eventoes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new EventMap());
-            modelBuilder.Configurations.Add(new LessonMap());
-            modelBuilder.Configurations.Add(new TeacherMap());
+            modelBuilder.Configurations.Add(new EventoMap());
         }
     }
 }

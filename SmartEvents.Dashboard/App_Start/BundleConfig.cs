@@ -43,6 +43,31 @@ namespace SmartEvents.Dashboard
                 "~/Content/bootstrap.min.css",
                 "~/Content/style.css"));
 
+      // dropZone styles
+      bundles.Add(new StyleBundle("~/Content/plugins/dropzone/dropZoneStyles").Include(
+                "~/Content/plugins/dropzone/basic.css",
+                "~/Content/plugins/dropzone/dropzone.css"));
+
+      // dropZone 
+      bundles.Add(new ScriptBundle("~/plugins/dropZone").Include(
+                "~/Scripts/plugins/dropzone/dropzone.js"));
+
+      //// iCheck css styles
+      //bundles.Add(new StyleBundle("~/Content/plugins/iCheck/iCheckStyles").Include(
+      //          "~/Content/plugins/iCheck/custom.css"));
+
+      //// iCheck
+      //bundles.Add(new ScriptBundle("~/plugins/iCheck").Include(
+      //          "~/Scripts/plugins/iCheck/icheck.min.js"));
+
+      //// wizardSteps styles
+      //bundles.Add(new StyleBundle("~/plugins/wizardStepsStyles").Include(
+      //          "~/Content/plugins/steps/jquery.steps.css"));
+
+      //// wizardSteps 
+      //bundles.Add(new ScriptBundle("~/plugins/wizardSteps").Include(
+      //          "~/Scripts/plugins/staps/jquery.steps.min.js"));
+
       // Font Awesome icons
       bundles.Add(new StyleBundle("~/font-awesome/css").Include(
                 "~/fonts/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform()));

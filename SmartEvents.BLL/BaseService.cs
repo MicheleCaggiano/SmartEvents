@@ -41,17 +41,17 @@ namespace SmartEvents.BLL
       return BaseRepository.SaveChanges();
     }
     /// <summary>
-    /// Delete entity by primary key
+    /// DeleteById entity by primary key
     /// </summary>
     /// <param name="id">Entity id</param>
     /// <returns>True entity deleted, false otherwise</returns>
-    public bool Delete(object id)
+    public bool DeleteById(object id)
     {
-      BaseRepository.Delete(id);
+      BaseRepository.DeleteById(id);
       return BaseRepository.SaveChanges();
     }
     /// <summary>
-    /// Delete entity
+    /// DeleteById entity
     /// </summary>
     /// <param name="entity">Entity to delete</param>
     /// <returns>True entity deleted, false otherwise</returns>
@@ -61,7 +61,7 @@ namespace SmartEvents.BLL
       return BaseRepository.SaveChanges();
     }
     /// <summary>
-    /// Delete entity by specified expression
+    /// DeleteById entity by specified expression
     /// </summary>
     /// <param name="where">Where clause expression</param>
     /// <returns>True entity deleted, false otherwise</returns>

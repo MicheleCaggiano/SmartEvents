@@ -513,7 +513,7 @@ ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
         </div>
         <div ng-show="showActions" ng-swipe-right="showActions = false">
           <button ng-click="reply()">Reply</button>
-          <button ng-click="delete()">Delete</button>
+          <button ng-click="delete()">DeleteById</button>
         </div>
       </file>
       <file name="script.js">
@@ -546,7 +546,7 @@ ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
         </div>
         <div ng-show="showActions" ng-swipe-right="showActions = false">
           <button ng-click="reply()">Reply</button>
-          <button ng-click="delete()">Delete</button>
+          <button ng-click="delete()">DeleteById</button>
         </div>
       </file>
       <file name="script.js">

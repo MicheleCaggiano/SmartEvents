@@ -1,0 +1,12 @@
+Force Git to overwrite local files on pull
+-----------------------------------------------
+git fetch --all
+git reset --hard origin/master
+
+Add file to git repository
+-----------------------------------------------
+git add spCustomerSearch_Result.cs --del branch 
+
+Merge
+-------------------------------------------------
+git merge origin/<nomebranch>

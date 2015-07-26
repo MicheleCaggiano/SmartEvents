@@ -34,6 +34,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.BLL.Tests", "Sm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.Dashboard", "SmartEvents.Dashboard\SmartEvents.Dashboard.csproj", "{86CADB26-5817-46B6-88C7-76D5753722C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{5DBBF61C-7A5D-442A-96A8-C20349C105AA}"
+	ProjectSection(SolutionItems) = preProject
+		GitCommands.txt = GitCommands.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

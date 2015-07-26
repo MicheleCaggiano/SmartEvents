@@ -51,6 +51,7 @@ namespace <#= Namespace #>
     var contextTypeName = ContextTypeName;
     var entitySetName = ModelMetadata.EntitySetName;
     var entitySetVariable = entitySetName.ToLowerInvariant();
+    var entityServiceVariable = "_" + entitySetVariable + "Service";
     var primaryKeyName = ModelMetadata.PrimaryKeys[0].PropertyName;
     var primaryKeyShortTypeName = ModelMetadata.PrimaryKeys[0].ShortTypeName;
     var primaryKeyDefaultValue = ModelMetadata.PrimaryKeys[0].DefaultValue;
@@ -71,7 +72,13 @@ namespace <#= Namespace #>
 #>
     public class <#= ControllerName #> : Controller
     {
-        private <#= ContextTypeName #> db = new <#= ContextTypeName #>();
+        private readonly <#= entitySetName #>Service <#= entityServiceVariable #>;
+     
+        public <#= ControllerName #>(<#= entitySetName #>Service <#= entitySetVariable #>Service)
+        {
+          _<#= entitySetVariable #>Service = <#= entitySetVariable #>Service;
+        }
+
 
         // GET: <#= routePrefix #>
 <# if (UseAsync) { #>
@@ -84,17 +91,16 @@ namespace <#= Namespace #>
         includeExpressions = String.Join("", relatedProperties.Values.Select(property => String.Format(".Include({0} => {0}.{1})", lambdaVar, property.AssociationPropertyName)));
 #>
 <# if(!String.IsNullOrEmpty(includeExpressions)) { #>
-            var <#= entitySetVariable #> = db.<#= entitySetName #><#= includeExpressions #>;
 <#		if (UseAsync) { #>
-            return View(await <#= entitySetVariable #>.ToListAsync());
+            return View(await <#= entityServiceVariable #>.FindAll().ToListAsync());
 <#		} else { #>
-            return View(<#= entitySetVariable #>.ToList());
+            return View(<#= entityServiceVariable #>.FindAll().ToList());
 <#		} #>
 <# } else { #>
 <#		if (UseAsync) { #>
             return View(await db.<#= entitySetName #><#= includeExpressions #>.ToListAsync());
 <#		} else { #>
-            return View(db.<#= entitySetName #><#= includeExpressions #>.ToList());
+            return View(<#= entityServiceVariable #>.FindAll().ToList());
 <#		} #>
 <# } #>
         }
@@ -111,9 +117,9 @@ namespace <#= Namespace #>
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 <# if (UseAsync) { #>
-            <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
+            var <#= ModelVariable #> = await <#= entityServiceVariable #>.FindAsync(id);
 <# } else { #>
-            <#= ModelTypeName #> <#= ModelVariable #> = db.<#= entitySetName #>.Find(id);
+            var <#= ModelVariable #> = <#= entityServiceVariable #>.FindById(id);
 <# } #>
             if (<#= ModelVariable #> == null)
             {
@@ -142,27 +148,16 @@ namespace <#= Namespace #>
 <# if (UseAsync) { #>
         public async Task<ActionResult> Create(<#= bindAttribute #><#= ModelTypeName #> <#= ModelVariable #>)
 <# } else { #>
-        public ActionResult Create(<#= bindAttribute #><#= ModelTypeName #> <#= ModelVariable #>)
+        public ActionResult Create(<#= ModelTypeName #> <#= ModelVariable #>)
 <# } #>
         {
-            if (ModelState.IsValid)
-            {
-<# if(!String.IsNullOrEmpty(primaryKeyType) && String.Equals("System.Guid", primaryKeyType, StringComparison.OrdinalIgnoreCase)) { #>
-                <#= ModelVariable #>.<#= primaryKeyName #> = Guid.NewGuid();
-<# } #>
-                db.<#= entitySetName #>.Add(<#= ModelVariable #>);
-<# if (UseAsync) {#>
-                await db.SaveChangesAsync();
-<# } else { #>
-                db.SaveChanges();
-<# } #>
-                return RedirectToAction("Index");
-            }
-
+            if (!ModelState.IsValid) return View(<#= ModelVariable #>);
+            
+            <#= entityServiceVariable #>.Save(<#= ModelVariable #>);        
+             return RedirectToAction("Index");
 <# foreach (var property in relatedProperties.Values) { #>
             ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>", <#= ModelVariable #>.<#= property.ForeignKeyPropertyNames[0] #>);
 <# } #>
-            return View(<#= ModelVariable #>);
         }
 
         // GET: <#= routePrefix #>Edit/5
@@ -177,9 +172,9 @@ namespace <#= Namespace #>
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 <# if (UseAsync) { #>
-            <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
+            var <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
 <# } else { #>
-            <#= ModelTypeName #> <#= ModelVariable #> = db.<#= entitySetName #>.Find(id);
+           var <#= ModelVariable #> = <#= entityServiceVariable #>.FindById(id);
 <# } #>
             if (<#= ModelVariable #> == null)
             {
@@ -202,23 +197,16 @@ namespace <#= Namespace #>
 <# if (UseAsync) { #>
         public async Task<ActionResult> Edit(<#= bindAttribute #><#= ModelTypeName #> <#= ModelVariable #>)
 <# } else { #>
-        public ActionResult Edit(<#= bindAttribute #><#= ModelTypeName #> <#= ModelVariable #>)
+        public ActionResult Edit(<#= ModelTypeName #> <#= ModelVariable #>)
 <# } #>
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(<#= ModelVariable #>).State = EntityState.Modified;
-<# if (UseAsync) { #>
-                await db.SaveChangesAsync();
-<# } else { #>
-                db.SaveChanges();
-<# } #>
-                return RedirectToAction("Index");
-            }
+            if (!ModelState.IsValid) return View(<#= ModelVariable #>);
+                            
+            <#= entityServiceVariable #>.Update(<#= ModelVariable #>);        
+            return RedirectToAction("Index");                    
 <# foreach (var property in relatedProperties.Values) { #>
             ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>", <#= ModelVariable #>.<#= property.ForeignKeyPropertyNames[0] #>);
 <# } #>
-            return View(<#= ModelVariable #>);
         }
 
         // GET: <#= routePrefix #>Delete/5
@@ -235,7 +223,7 @@ namespace <#= Namespace #>
 <# if (UseAsync) { #>
             <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
 <# } else { #>
-            <#= ModelTypeName #> <#= ModelVariable #> = db.<#= entitySetName #>.Find(id);
+            var <#= ModelVariable #> = <#= entityServiceVariable #>.FindById(id);
 <# } #>
             if (<#= ModelVariable #> == null)
             {
@@ -255,25 +243,12 @@ namespace <#= Namespace #>
         {
 <# if (UseAsync) { #>
             <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
-<# } else { #>
-            <#= ModelTypeName #> <#= ModelVariable #> = db.<#= entitySetName #>.Find(id);
-<# } #>
             db.<#= entitySetName #>.Remove(<#= ModelVariable #>);
-<# if (UseAsync) { #>
             await db.SaveChangesAsync();
 <# } else { #>
-            db.SaveChanges();
+             <#= entityServiceVariable #>.DeleteById(id);
 <# } #>
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
