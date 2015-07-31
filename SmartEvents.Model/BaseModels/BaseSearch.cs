@@ -1,4 +1,4 @@
-﻿namespace SmartEvents.Model.BaseModels
+﻿namespace TangOrganizer.Model.BaseModels
 {
   public class BaseSearch
   {

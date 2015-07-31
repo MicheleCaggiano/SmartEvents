@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace SmartEvents.Dashboard
+namespace TangOrganizer.Dashboard
 {
     public class RouteConfig
     {

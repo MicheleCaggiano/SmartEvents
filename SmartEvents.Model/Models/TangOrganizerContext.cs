@@ -1,8 +1,7 @@
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using SmartEvents.Model.Models.Mapping;
+using TangOrganizer.Model.Models.Mapping;
 
-namespace SmartEvents.Model.Models
+namespace TangOrganizer.Model.Models
 {
     public partial class TangOrganizerContext : DbContext
     {

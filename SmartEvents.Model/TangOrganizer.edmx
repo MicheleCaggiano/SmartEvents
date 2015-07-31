@@ -7,6 +7,11 @@
     <Schema Namespace="TangOrganizer.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="TangOrganizerStoreContainer">
     <EntitySet Name="Evento" EntityType="TangOrganizer.Store.Evento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Attivita" EntityType="TangOrganizer.Store.Attivita" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EventoAttivita" Association="TangOrganizer.Store.EventoAttivita">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="Attivita" EntitySet="Attivita" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Evento">
     <Key>
@@ -15,22 +20,59 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Descrizione" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Cancellato" Type="bit" Nullable="false" />
     <Property Name="DataInizio" Type="datetime" Nullable="true" />
     <Property Name="DataFine" Type="datetime" Nullable="true" />
     <Property Name="Luogo" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Cancellato" Type="bit" Nullable="false" />
     <Property Name="AuthInfo_DataCreazione" Type="datetime" Nullable="false" />
     <Property Name="AuthInfo_CreatoDa" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="AuthInfo_DataUltimaModifica" Type="datetime" Nullable="false" />
     <Property Name="AuthInfo_ModificatoDa" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="AuthInfo_UserId" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
+  <EntityType Name="Attivita">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descrizione" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DataInizio" Type="datetime" Nullable="true" />
+    <Property Name="DataFine" Type="datetime" Nullable="true" />
+    <Property Name="Luogo" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="LimiteIscrizioni" Type="int" Nullable="false" />
+    <Property Name="Cancellato" Type="bit" Nullable="false" />
+    <Property Name="AuthInfo_DataCreazione" Type="datetime" Nullable="false" />
+    <Property Name="AuthInfo_CreatoDa" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="AuthInfo_DataUltimaModifica" Type="datetime" Nullable="false" />
+    <Property Name="AuthInfo_ModificatoDa" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="AuthInfo_UserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="EventoId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="EventoAttivita">
+    <End Role="Evento" Type="TangOrganizer.Store.Evento" Multiplicity="1" />
+    <End Role="Attivita" Type="TangOrganizer.Store.Attivita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attivita">
+        <PropertyRef Name="EventoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="TangOrganizer" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="TangOrganizerContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Evento" EntityType="TangOrganizer.Evento" />
+          <EntitySet Name="Attivita" EntityType="TangOrganizer.Attivita" />
+          <AssociationSet Name="EventoAttivita" Association="TangOrganizer.EventoAttivita">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Attivita" EntitySet="Attivita" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Evento">
           <Key>
@@ -39,11 +81,12 @@
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Nome" Type="String" Nullable="false" MaxLength="255" />
           <Property Name="Descrizione" Type="String" Nullable="true" MaxLength="Max" />
-          <Property Name="Cancellato" Type="Boolean" Nullable="false" />
           <Property Name="DataInizio" Type="DateTime" Nullable="true" />
           <Property Name="DataFine" Type="DateTime" Nullable="true" />
           <Property Name="Luogo" Type="String" Nullable="false" MaxLength="300" />
+          <Property Name="Cancellato" Type="Boolean" Nullable="false" />
           <Property Name="AuthInfo" Type="TangOrganizer.AuthInfo" Nullable="false" />
+          <NavigationProperty Name="Attivita" Relationship="TangOrganizer.EventoAttivita" FromRole="Evento" ToRole="Attivita" />
         </EntityType>
         <ComplexType Name="AuthInfo" >
           <Property Type="DateTime" Name="DataCreazione" Nullable="false" />
@@ -52,6 +95,35 @@
           <Property Type="String" Name="ModificatoDa" Nullable="false" MaxLength="255" />
           <Property Type="String" Name="UserId" Nullable="false" MaxLength="100" />
         </ComplexType>
+        <EntityType Name="Attivita">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Descrizione" Type="String" Nullable="true" MaxLength="Max" />
+          <Property Name="DataInizio" Type="DateTime" Nullable="true" />
+          <Property Name="DataFine" Type="DateTime" Nullable="true" />
+          <Property Name="Luogo" Type="String" Nullable="false" MaxLength="300" />
+          <Property Name="LimiteIscrizioni" Type="Int32" Nullable="false" />
+          <Property Name="Cancellato" Type="Boolean" Nullable="false" />
+          <Property Name="AuthInfo" Type="TangOrganizer.AuthInfo" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="TangOrganizer.EventoAttivita" FromRole="Attivita" ToRole="Evento" />
+          <Property Name="EventoId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <Association Name="EventoAttivita">
+          <End Type="TangOrganizer.Evento" Role="Evento" Multiplicity="1" />
+          <End Type="TangOrganizer.Attivita" Role="Attivita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attivita">
+              <PropertyRef Name="EventoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -64,10 +136,10 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
-          <ScalarProperty Name="Cancellato" ColumnName="Cancellato" />
           <ScalarProperty Name="DataInizio" ColumnName="DataInizio" />
           <ScalarProperty Name="DataFine" ColumnName="DataFine" />
           <ScalarProperty Name="Luogo" ColumnName="Luogo" />
+          <ScalarProperty Name="Cancellato" ColumnName="Cancellato" />
           <ComplexProperty Name="AuthInfo" TypeName="TangOrganizer.AuthInfo">
             <ScalarProperty Name="DataCreazione" ColumnName="AuthInfo_DataCreazione" />
             <ScalarProperty Name="CreatoDa" ColumnName="AuthInfo_CreatoDa" />
@@ -75,6 +147,29 @@
             <ScalarProperty Name="ModificatoDa" ColumnName="AuthInfo_ModificatoDa" />
             <ScalarProperty Name="UserId" ColumnName="AuthInfo_UserId" />
           </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attivita">
+      <EntityTypeMapping TypeName="IsTypeOf(TangOrganizer.Attivita)">
+        <MappingFragment StoreEntitySet="Attivita">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+          <ScalarProperty Name="DataInizio" ColumnName="DataInizio" />
+          <ScalarProperty Name="DataFine" ColumnName="DataFine" />
+          <ScalarProperty Name="Luogo" ColumnName="Luogo" />
+          <ScalarProperty Name="LimiteIscrizioni" ColumnName="LimiteIscrizioni" />
+          <ScalarProperty Name="Cancellato" ColumnName="Cancellato" />
+          <ComplexProperty Name="AuthInfo" TypeName="TangOrganizer.AuthInfo">
+            <ScalarProperty Name="DataCreazione" ColumnName="AuthInfo_DataCreazione" />
+            <ScalarProperty Name="CreatoDa" ColumnName="AuthInfo_CreatoDa" />
+            <ScalarProperty Name="DataUltimaModifica" ColumnName="AuthInfo_DataUltimaModifica" />
+            <ScalarProperty Name="ModificatoDa" ColumnName="AuthInfo_ModificatoDa" />
+            <ScalarProperty Name="UserId" ColumnName="AuthInfo_UserId" />
+          </ComplexProperty>
+          <ScalarProperty Name="EventoId" ColumnName="EventoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

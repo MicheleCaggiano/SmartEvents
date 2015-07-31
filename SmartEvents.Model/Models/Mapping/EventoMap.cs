@@ -1,7 +1,6 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SmartEvents.Model.Models.Mapping
+namespace TangOrganizer.Model.Models.Mapping
 {
   public class EventoMap : EntityTypeConfiguration<Evento>
   {

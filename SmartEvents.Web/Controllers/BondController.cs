@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using SmartEvents.BLL;
 using SmartEvents.Web.Models;
 using IndexViewModel = SmartEvents.Web.Models.Bond.IndexViewModel;
 

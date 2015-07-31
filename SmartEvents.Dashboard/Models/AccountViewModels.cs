@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SmartEvents.Dashboard.Models
+namespace TangOrganizer.Dashboard.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

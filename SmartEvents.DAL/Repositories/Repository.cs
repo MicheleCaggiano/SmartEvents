@@ -3,9 +3,9 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Expressions;
-using SmartEvents.DAL.Interfaces;
+using TangOrganizer.DAL.Interfaces;
 
-namespace SmartEvents.DAL.Repositories
+namespace TangOrganizer.DAL.Repositories
 {
     public class Repository<TEntity, TContext> : IRepository<TEntity>, IDisposable
         where TEntity : class

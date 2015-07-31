@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SmartEvents.DAL.Interfaces;
-using SmartEvents.Model.Models;
+using TangOrganizer.DAL.Interfaces;
+using TangOrganizer.Model.Models;
 
-namespace SmartEvents.BLL
+namespace TangOrganizer.Service
 {
   public class EventoService : BaseService<Evento>
   {

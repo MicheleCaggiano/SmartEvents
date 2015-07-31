@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Web.Configuration;
 using System.Web.Mvc;
-using System.Web.Routing;
 using Microsoft.AspNet.Identity;
-using SmartEvents.BLL;
-using SmartEvents.Model.Models;
+using TangOrganizer.Model.Models;
+using TangOrganizer.Service;
 
-namespace SmartEvents.Dashboard.Controllers
+namespace TangOrganizer.Dashboard.Controllers
 {
   public class EventoController : Controller
   {

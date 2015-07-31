@@ -1198,17 +1198,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartEvents.BLL\SmartEvents.BLL.csproj">
+    <ProjectReference Include="..\SmartEvents.BLL\TangOrganizer.Service.csproj">
       <Project>{037bc133-8830-4d92-af4b-ba9c7e5ddeb5}</Project>
-      <Name>SmartEvents.BLL</Name>
+      <Name>TangOrganizer.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartEvents.Infrastructure\SmartEvents.Infrastructure.csproj">
       <Project>{4c120deb-b1f4-4f13-b4a9-01a186445c5d}</Project>
       <Name>SmartEvents.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartEvents.Model\SmartEvents.Model.csproj">
+    <ProjectReference Include="..\SmartEvents.Model\TangOrganizer.Model.csproj">
       <Project>{D0B8F174-74C8-4DF7-8668-5084B5095F6F}</Project>
-      <Name>SmartEvents.Model</Name>
+      <Name>TangOrganizer.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿using SmartEvents.Model.BaseModels;
+﻿using TangOrganizer.Model.BaseModels;
 
 namespace SmartEvents.Web.Models
 {

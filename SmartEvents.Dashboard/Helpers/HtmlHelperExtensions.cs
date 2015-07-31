@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace SmartEvents.Dashboard.Helpers
+namespace TangOrganizer.Dashboard.Helpers
 {
     public static class HtmlHelperExtensions
     {

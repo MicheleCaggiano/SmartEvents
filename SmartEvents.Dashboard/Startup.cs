@@ -1,9 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using SmartEvents.Dashboard;
+using TangOrganizer.Dashboard;
 
 [assembly: OwinStartup(typeof(Startup))]
-namespace SmartEvents.Dashboard
+namespace TangOrganizer.Dashboard
 {
     public partial class Startup
     {

@@ -1,10 +1,10 @@
 using System;
 using Microsoft.Practices.Unity;
-using SmartEvents.Dashboard.Controllers;
-using SmartEvents.DAL.Interfaces;
-using SmartEvents.DAL.Repositories;
+using TangOrganizer.Dashboard.Controllers;
+using TangOrganizer.DAL.Interfaces;
+using TangOrganizer.DAL.Repositories;
 
-namespace SmartEvents.Dashboard
+namespace TangOrganizer.Dashboard
 {
   /// <summary>
   /// Specifies the Unity configuration for the main container.

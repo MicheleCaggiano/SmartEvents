@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-
-namespace SmartEvents.Model.Models
+namespace TangOrganizer.Model.Models
 {
   public partial class Evento
   {

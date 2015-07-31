@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using SmartEvents.DAL.Interfaces;
+using TangOrganizer.DAL.Interfaces;
 
-namespace SmartEvents.BLL
+namespace TangOrganizer.Service
 {
   public abstract class BaseService<T> where T : class
   {

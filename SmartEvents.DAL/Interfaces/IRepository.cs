@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace SmartEvents.DAL.Interfaces
+namespace TangOrganizer.DAL.Interfaces
 {
   public interface IRepository<TEntity>
   {

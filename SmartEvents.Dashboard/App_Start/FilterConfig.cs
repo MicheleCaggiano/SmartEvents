@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace SmartEvents.Dashboard
+namespace TangOrganizer.Dashboard
 {
     public class FilterConfig
     {

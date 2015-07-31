@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.Model", "SmartEvents.Model\SmartEvents.Model.csproj", "{D0B8F174-74C8-4DF7-8668-5084B5095F6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangOrganizer.Model", "SmartEvents.Model\TangOrganizer.Model.csproj", "{D0B8F174-74C8-4DF7-8668-5084B5095F6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.DAL", "SmartEvents.DAL\SmartEvents.DAL.csproj", "{A3A0F807-1E76-45F2-A55F-6F23C7C5ED38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangOrganizer.DAL", "SmartEvents.DAL\TangOrganizer.DAL.csproj", "{A3A0F807-1E76-45F2-A55F-6F23C7C5ED38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.BLL", "SmartEvents.BLL\SmartEvents.BLL.csproj", "{037BC133-8830-4D92-AF4B-BA9C7E5DDEB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangOrganizer.Service", "SmartEvents.BLL\TangOrganizer.Service.csproj", "{037BC133-8830-4D92-AF4B-BA9C7E5DDEB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.Web", "SmartEvents.Web\SmartEvents.Web.csproj", "{745C9D87-A1A0-4B49-8935-C58C9A589080}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.Web.Tests", "SmartEvents.Web.Tests\SmartEvents.Web.Tests.csproj", "{F1E7D352-3FBB-4497-9AE8-2F666601F2DE}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SmartEvents.Database", "SmartEvents.Database\SmartEvents.Database.sqlproj", "{2D76063E-5C3E-4E10-9E3B-D90ACD7D34F7}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TangOrganizer.Database", "SmartEvents.Database\TangOrganizer.Database.sqlproj", "{2D76063E-5C3E-4E10-9E3B-D90ACD7D34F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.DAL.Tests", "SmartEvents.DAL.Tests\SmartEvents.DAL.Tests.csproj", "{BB73E014-2EEE-4C84-8E15-640317D0E8CB}"
 EndProject
@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F5EDD30C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.BLL.Tests", "SmartEvents.BLL.Tests\SmartEvents.BLL.Tests.csproj", "{FD30A961-97A1-4831-ABE1-8E885B2E7AF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEvents.Dashboard", "SmartEvents.Dashboard\SmartEvents.Dashboard.csproj", "{86CADB26-5817-46B6-88C7-76D5753722C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangOrganizer.Dashboard", "SmartEvents.Dashboard\TangOrganizer.Dashboard.csproj", "{86CADB26-5817-46B6-88C7-76D5753722C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{5DBBF61C-7A5D-442A-96A8-C20349C105AA}"
 	ProjectSection(SolutionItems) = preProject

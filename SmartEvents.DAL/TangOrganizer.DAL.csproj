@@ -7,8 +7,8 @@
     <ProjectGuid>{A3A0F807-1E76-45F2-A55F-6F23C7C5ED38}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartEvents.DAL</RootNamespace>
-    <AssemblyName>SmartEvents.DAL</AssemblyName>
+    <RootNamespace>TangOrganizer.DAL</RootNamespace>
+    <AssemblyName>TangOrganizer.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -66,9 +66,9 @@
     <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartEvents.Model\SmartEvents.Model.csproj">
+    <ProjectReference Include="..\SmartEvents.Model\TangOrganizer.Model.csproj">
       <Project>{D0B8F174-74C8-4DF7-8668-5084B5095F6F}</Project>
-      <Name>SmartEvents.Model</Name>
+      <Name>TangOrganizer.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

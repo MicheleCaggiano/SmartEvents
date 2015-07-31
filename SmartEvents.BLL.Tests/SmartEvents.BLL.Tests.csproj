@@ -65,17 +65,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartEvents.BLL\SmartEvents.BLL.csproj">
+    <ProjectReference Include="..\SmartEvents.BLL\TangOrganizer.Service.csproj">
       <Project>{037BC133-8830-4D92-AF4B-BA9C7E5DDEB5}</Project>
-      <Name>SmartEvents.BLL</Name>
+      <Name>TangOrganizer.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartEvents.DAL\SmartEvents.DAL.csproj">
+    <ProjectReference Include="..\SmartEvents.DAL\TangOrganizer.DAL.csproj">
       <Project>{a3a0f807-1e76-45f2-a55f-6f23c7c5ed38}</Project>
-      <Name>SmartEvents.DAL</Name>
+      <Name>TangOrganizer.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartEvents.Model\SmartEvents.Model.csproj">
+    <ProjectReference Include="..\SmartEvents.Model\TangOrganizer.Model.csproj">
       <Project>{d0b8f174-74c8-4df7-8668-5084b5095f6f}</Project>
-      <Name>SmartEvents.Model</Name>
+      <Name>TangOrganizer.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

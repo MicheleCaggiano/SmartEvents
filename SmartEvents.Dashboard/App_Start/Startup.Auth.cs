@@ -3,7 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace SmartEvents.Dashboard
+namespace TangOrganizer.Dashboard
 {
     public partial class Startup
     {

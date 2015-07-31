@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Web.Optimization;
 
-namespace SmartEvents.Dashboard
+namespace TangOrganizer.Dashboard
 {
   public class BundleConfig
   {

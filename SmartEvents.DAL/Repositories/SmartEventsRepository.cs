@@ -1,7 +1,7 @@
-﻿using SmartEvents.DAL.Interfaces;
-using SmartEvents.Model.Models;
+﻿using TangOrganizer.DAL.Interfaces;
+using TangOrganizer.Model.Models;
 
-namespace SmartEvents.DAL.Repositories
+namespace TangOrganizer.DAL.Repositories
 {
   public class SmartEventsRepository<TEntity> : Repository<TEntity, TangOrganizerContext>, ISmartEventsRepository<TEntity>
     where TEntity : class

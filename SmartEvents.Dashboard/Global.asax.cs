@@ -5,7 +5,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using SmartEvents.Infrastructure.Logging;
 
-namespace SmartEvents.Dashboard
+namespace TangOrganizer.Dashboard
 {
   public class MvcApplication : HttpApplication
   {

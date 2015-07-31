@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartEvents.Dashboard</RootNamespace>
-    <AssemblyName>SmartEvents.Dashboard</AssemblyName>
+    <RootNamespace>TangOrganizer.Dashboard</RootNamespace>
+    <AssemblyName>TangOrganizer.Dashboard</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -380,21 +380,21 @@
     <Content Include="Scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartEvents.BLL\SmartEvents.BLL.csproj">
+    <ProjectReference Include="..\SmartEvents.BLL\TangOrganizer.Service.csproj">
       <Project>{037bc133-8830-4d92-af4b-ba9c7e5ddeb5}</Project>
-      <Name>SmartEvents.BLL</Name>
+      <Name>TangOrganizer.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartEvents.DAL\SmartEvents.DAL.csproj">
+    <ProjectReference Include="..\SmartEvents.DAL\TangOrganizer.DAL.csproj">
       <Project>{a3a0f807-1e76-45f2-a55f-6f23c7c5ed38}</Project>
-      <Name>SmartEvents.DAL</Name>
+      <Name>TangOrganizer.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartEvents.Infrastructure\SmartEvents.Infrastructure.csproj">
       <Project>{4c120deb-b1f4-4f13-b4a9-01a186445c5d}</Project>
       <Name>SmartEvents.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartEvents.Model\SmartEvents.Model.csproj">
+    <ProjectReference Include="..\SmartEvents.Model\TangOrganizer.Model.csproj">
       <Project>{d0b8f174-74c8-4df7-8668-5084b5095f6f}</Project>
-      <Name>SmartEvents.Model</Name>
+      <Name>TangOrganizer.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

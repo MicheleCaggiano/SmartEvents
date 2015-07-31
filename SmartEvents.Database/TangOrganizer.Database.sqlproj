@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>SmartEvents.Database</Name>
+    <Name>TangOrganizer.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{2d76063e-5c3e-4e10-9e3b-d90acd7d34f7}</ProjectGuid>
@@ -12,8 +12,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>SmartEvents</RootNamespace>
-    <AssemblyName>SmartEvents</AssemblyName>
+    <RootNamespace>TangOrganizer</RootNamespace>
+    <AssemblyName>TangOrganizer</AssemblyName>
     <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -74,6 +74,9 @@
     <Folder Include="PostDeployScript" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="Lookup\" />
+    <Folder Include="Lookup\Tables\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployScript\LoadData.sql" />
@@ -83,5 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Evento.sql" />
+    <Build Include="dbo\Tables\Attivita.sql" />
+    <Build Include="Lookup\Tables\TipoAttivita.sql" />
+    <Build Include="Security\Lookup.sql" />
   </ItemGroup>
 </Project>

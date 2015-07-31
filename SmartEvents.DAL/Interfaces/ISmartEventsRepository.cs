@@ -1,4 +1,4 @@
-﻿namespace SmartEvents.DAL.Interfaces
+﻿namespace TangOrganizer.DAL.Interfaces
 {
   public interface ISmartEventsRepository<TEntity> : IRepository<TEntity>
   {
