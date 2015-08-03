@@ -8,9 +8,14 @@
   <EntityContainer Name="TangOrganizerStoreContainer">
     <EntitySet Name="Evento" EntityType="TangOrganizer.Store.Evento" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Attivita" EntityType="TangOrganizer.Store.Attivita" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pacchetto" EntityType="TangOrganizer.Store.Pacchetto" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="EventoAttivita" Association="TangOrganizer.Store.EventoAttivita">
       <End Role="Evento" EntitySet="Evento" />
       <End Role="Attivita" EntitySet="Attivita" />
+    </AssociationSet>
+    <AssociationSet Name="EventoPacchetto" Association="TangOrganizer.Store.EventoPacchetto">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="Pacchetto" EntitySet="Pacchetto" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Evento">
@@ -28,7 +33,7 @@
     <Property Name="AuthInfo_CreatoDa" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="AuthInfo_DataUltimaModifica" Type="datetime" Nullable="false" />
     <Property Name="AuthInfo_ModificatoDa" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="AuthInfo_UserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="AuthInfo_UserId" Type="nvarchar" Nullable="true" MaxLength="100" />
   </EntityType>
   <EntityType Name="Attivita">
     <Key>
@@ -47,7 +52,17 @@
     <Property Name="AuthInfo_CreatoDa" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="AuthInfo_DataUltimaModifica" Type="datetime" Nullable="false" />
     <Property Name="AuthInfo_ModificatoDa" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="AuthInfo_UserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="AuthInfo_UserId" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="EventoId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pacchetto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Descrizione" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Prezzo" Type="decimal" Nullable="true" DefaultValue="0" Precision="18" Scale="2" />
     <Property Name="EventoId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <Association Name="EventoAttivita">
@@ -58,6 +73,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Attivita">
+        <PropertyRef Name="EventoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventoPacchetto">
+    <End Role="Evento" Type="TangOrganizer.Store.Evento" Multiplicity="1" />
+    <End Role="Pacchetto" Type="TangOrganizer.Store.Pacchetto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pacchetto">
         <PropertyRef Name="EventoId" />
       </Dependent>
     </ReferentialConstraint>
@@ -73,6 +100,11 @@
             <End Role="Evento" EntitySet="Evento" />
             <End Role="Attivita" EntitySet="Attivita" />
           </AssociationSet>
+          <EntitySet Name="Pacchetto" EntityType="TangOrganizer.Pacchetto" />
+          <AssociationSet Name="EventoPacchetto" Association="TangOrganizer.EventoPacchetto">
+            <End Role="Evento" EntitySet="Evento" />
+            <End Role="Pacchetto" EntitySet="Pacchetto" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Evento">
           <Key>
@@ -87,13 +119,14 @@
           <Property Name="Cancellato" Type="Boolean" Nullable="false" />
           <Property Name="AuthInfo" Type="TangOrganizer.AuthInfo" Nullable="false" />
           <NavigationProperty Name="Attivita" Relationship="TangOrganizer.EventoAttivita" FromRole="Evento" ToRole="Attivita" />
+          <NavigationProperty Name="Pacchetti" Relationship="TangOrganizer.EventoPacchetto" FromRole="Evento" ToRole="Pacchetto" />
         </EntityType>
         <ComplexType Name="AuthInfo" >
           <Property Type="DateTime" Name="DataCreazione" Nullable="false" />
           <Property Type="String" Name="CreatoDa" Nullable="false" MaxLength="255" />
           <Property Type="DateTime" Name="DataUltimaModifica" Nullable="false" />
           <Property Type="String" Name="ModificatoDa" Nullable="false" MaxLength="255" />
-          <Property Type="String" Name="UserId" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="UserId" MaxLength="100" Nullable="true" />
         </ComplexType>
         <EntityType Name="Attivita">
           <Key>
@@ -120,6 +153,29 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Attivita">
+              <PropertyRef Name="EventoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pacchetto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="Descrizione" Type="String" MaxLength="Max" Nullable="true" />
+          <Property Name="Prezzo" Type="Decimal" ConcurrencyMode="Fixed" DefaultValue="0" Nullable="true" Precision="18" Scale="2" />
+          <NavigationProperty Name="Evento" Relationship="TangOrganizer.EventoPacchetto" FromRole="Pacchetto" ToRole="Evento" />
+          <Property Name="EventoId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <Association Name="EventoPacchetto">
+          <End Type="TangOrganizer.Evento" Role="Evento" Multiplicity="1" />
+          <End Type="TangOrganizer.Pacchetto" Role="Pacchetto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacchetto">
               <PropertyRef Name="EventoId" />
             </Dependent>
           </ReferentialConstraint>
@@ -169,6 +225,17 @@
             <ScalarProperty Name="ModificatoDa" ColumnName="AuthInfo_ModificatoDa" />
             <ScalarProperty Name="UserId" ColumnName="AuthInfo_UserId" />
           </ComplexProperty>
+          <ScalarProperty Name="EventoId" ColumnName="EventoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacchetto">
+      <EntityTypeMapping TypeName="IsTypeOf(TangOrganizer.Pacchetto)">
+        <MappingFragment StoreEntitySet="Pacchetto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+          <ScalarProperty Name="Prezzo" ColumnName="Prezzo" />
           <ScalarProperty Name="EventoId" ColumnName="EventoId" />
         </MappingFragment>
       </EntityTypeMapping>

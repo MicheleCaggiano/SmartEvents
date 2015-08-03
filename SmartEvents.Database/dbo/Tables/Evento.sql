@@ -10,7 +10,7 @@
     [AuthInfo_CreatoDa]           NVARCHAR (255)   NOT NULL,
     [AuthInfo_DataUltimaModifica] DATETIME         NOT NULL,
     [AuthInfo_ModificatoDa]       NVARCHAR (255)   NOT NULL,
-    [AuthInfo_UserId]             NVARCHAR (100)   NOT NULL,
+    [AuthInfo_UserId]             NVARCHAR (100)   NULL,
     CONSTRAINT [PK_Evento] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

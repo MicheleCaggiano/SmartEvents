@@ -89,5 +89,6 @@
     <Build Include="dbo\Tables\Attivita.sql" />
     <Build Include="Lookup\Tables\TipoAttivita.sql" />
     <Build Include="Security\Lookup.sql" />
+    <Build Include="dbo\Tables\Pacchetto.sql" />
   </ItemGroup>
 </Project>

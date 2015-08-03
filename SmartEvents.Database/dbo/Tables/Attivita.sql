@@ -12,7 +12,7 @@
     [AuthInfo_CreatoDa]           NVARCHAR (255)   NOT NULL,
     [AuthInfo_DataUltimaModifica] DATETIME         NOT NULL,
     [AuthInfo_ModificatoDa]       NVARCHAR (255)   NOT NULL,
-    [AuthInfo_UserId]             NVARCHAR (100)   NOT NULL,
+    [AuthInfo_UserId]             NVARCHAR (100)   NULL,
     [EventoId]                    UNIQUEIDENTIFIER NOT NULL,
     CONSTRAINT [PK_Attivita] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_EventoAttivita] FOREIGN KEY ([EventoId]) REFERENCES [dbo].[Evento] ([Id])
