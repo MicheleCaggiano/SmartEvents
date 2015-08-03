@@ -334,7 +334,6 @@
     <Content Include="Scripts\plugins\pace\pace.min.js" />
     <Content Include="Scripts\plugins\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\plugins\staps\jquery.steps.min.js" />
-    <Content Include="Views\Attivita\Edit.cshtml" />
     <Content Include="Views\Evento\_ListaMilonghe.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -372,12 +371,13 @@
     <Content Include="Views\Evento\Details.cshtml" />
     <Content Include="Views\Evento\Edit.cshtml" />
     <Content Include="Views\Evento\Index.cshtml" />
-    <Content Include="Views\Attivita\Create.cshtml" />
     <Content Include="Views\Attivita\Delete.cshtml" />
-    <Content Include="Views\Attivita\Details.cshtml" />
     <Content Include="Views\Attivita\Index.cshtml" />
     <Content Include="Views\Attivita\CreateMilonga.cshtml" />
     <Content Include="Views\Evento\_ListaLezioni.cshtml" />
+    <Content Include="Views\Attivita\CreateLezione.cshtml" />
+    <Content Include="Views\Attivita\EditLezione.cshtml" />
+    <Content Include="Views\Attivita\EditMilonga.cshtml" />
     <None Include="Web.EnterpriseLibrary.config" />
     <None Include="Web.Fincons.config">
       <DependentUpon>Web.config</DependentUpon>

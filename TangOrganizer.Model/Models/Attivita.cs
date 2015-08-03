@@ -8,6 +8,7 @@ namespace TangOrganizer.Model.Models
         public int Id { get; set; }
         public int Tipo { get; set; }
         public string Nome { get; set; }
+        public string Maestri { get; set; }
         public string Descrizione { get; set; }
         public Nullable<System.DateTime> DataInizio { get; set; }
         public Nullable<System.DateTime> DataFine { get; set; }

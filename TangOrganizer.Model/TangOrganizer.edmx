@@ -41,11 +41,12 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Tipo" Type="int" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Maestri" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="Descrizione" Type="nvarchar(max)" Nullable="true" />
     <Property Name="DataInizio" Type="datetime" Nullable="true" />
     <Property Name="DataFine" Type="datetime" Nullable="true" />
-    <Property Name="Luogo" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Luogo" Type="nvarchar" Nullable="true" MaxLength="300" />
     <Property Name="LimiteIscrizioni" Type="int" Nullable="false" />
     <Property Name="Cancellato" Type="bit" Nullable="false" />
     <Property Name="AuthInfo_DataCreazione" Type="datetime" Nullable="false" />
@@ -110,7 +111,7 @@
             <End Role="Evento" EntitySet="Evento" />
             <End Role="Pacchetto" EntitySet="Pacchetto" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Evento">
           <Key>
             <PropertyRef Name="Id" />
@@ -139,11 +140,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tipo" Type="Int32" Nullable="false" />
-          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Maestri" Type="String" Nullable="false" MaxLength="100" />
           <Property Name="Descrizione" Type="String" Nullable="true" MaxLength="Max" />
           <Property Name="DataInizio" Type="DateTime" Nullable="true" />
           <Property Name="DataFine" Type="DateTime" Nullable="true" />
-          <Property Name="Luogo" Type="String" Nullable="false" MaxLength="300" />
+          <Property Name="Luogo" Type="String" MaxLength="300" Nullable="true" />
           <Property Name="LimiteIscrizioni" Type="Int32" Nullable="false" />
           <Property Name="Cancellato" Type="Boolean" Nullable="false" />
           <Property Name="AuthInfo" Type="TangOrganizer.AuthInfo" Nullable="false" />
@@ -218,6 +220,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Maestri" ColumnName="Maestri" />
           <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
           <ScalarProperty Name="DataInizio" ColumnName="DataInizio" />
           <ScalarProperty Name="DataFine" ColumnName="DataFine" />

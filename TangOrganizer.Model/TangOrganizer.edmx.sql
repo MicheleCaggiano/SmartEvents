@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/03/2015 12:56:08
+-- Date Created: 08/03/2015 16:23:17
 -- Generated from EDMX file: C:\Users\Caggiano\Source\Repos\SmartEvents\TangOrganizer.Model\TangOrganizer.edmx
 -- --------------------------------------------------
 
@@ -63,11 +63,12 @@ GO
 CREATE TABLE [dbo].[Attivita] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Tipo] int  NOT NULL,
-    [Nome] nvarchar(max)  NOT NULL,
+    [Nome] nvarchar(100)  NOT NULL,
+    [Maestri] nvarchar(100)  NOT NULL,
     [Descrizione] nvarchar(max)  NULL,
     [DataInizio] datetime  NULL,
     [DataFine] datetime  NULL,
-    [Luogo] nvarchar(300)  NOT NULL,
+    [Luogo] nvarchar(300)  NULL,
     [LimiteIscrizioni] int  NOT NULL,
     [Cancellato] bit  NOT NULL,
     [AuthInfo_DataCreazione] datetime  NOT NULL,

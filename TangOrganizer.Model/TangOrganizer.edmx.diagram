@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="742ec78d4bca4a4594cdbdaaeb63818a" Name="Diagram1" DisplayType="true" ShowGrid="true" >
+      <Diagram DiagramId="742ec78d4bca4a4594cdbdaaeb63818a" Name="Diagram1" DisplayType="true" ShowGrid="true" ZoomLevel="86" >
         <EntityTypeShape EntityType="TangOrganizer.Evento" Width="1.5" PointX="1.25" PointY="0.75" />
-        <EntityTypeShape EntityType="TangOrganizer.Attivita" Width="2.375" PointX="4.625" PointY="0.75" />
+        <EntityTypeShape EntityType="TangOrganizer.Attivita" Width="2.375" PointX="4.625" PointY="0.625" />
         <AssociationConnector Association="TangOrganizer.EventoAttivita" />
         <EntityTypeShape EntityType="TangOrganizer.Pacchetto" Width="2" PointX="1.375" PointY="4.875" />
         <AssociationConnector Association="TangOrganizer.EventoPacchetto" />
