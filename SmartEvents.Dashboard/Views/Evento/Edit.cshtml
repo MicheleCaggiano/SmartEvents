@@ -1,126 +1,126 @@
-﻿@model TangOrganizer.Model.Models.Evento
+﻿@model TangOrganizer.Dashboard.Models.EventoViewModel
 
-@{
-  ViewBag.Title = "Modifica";
-}
+  @{
+    ViewBag.Title = "Modifica";
+  }
 
-<div class="row wrapper border-bottom white-bg page-heading">
-  <div class="col-sm-4">
-    <h2>Modifica</h2>
-    <ol class="breadcrumb">
-      <li>
-        @Html.ActionLink("Eventi", "Index")
-      </li>
-      <li class="active">
-        <strong>@Model.Nome</strong>
-      </li>
-    </ol>
-  </div>
-  <div class="col-sm-8">
-    <div class="title-action">
-      @Html.ActionLink("I miei eventi", "Index", null, new { @class = "btn btn-primary" })
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+      <h2>Modifica</h2>
+      <ol class="breadcrumb">
+        <li>
+          @Html.ActionLink("Eventi", "Index")
+        </li>
+        <li class="active">
+          <strong>@Model.Evento.Nome</strong>
+        </li>
+      </ol>
     </div>
-  </div>
-</div>
-
-
-
-
-<div class="wrapper wrapper-content animated fadeInRight">
-
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="ibox float-e-margins">
-        <div class="ibox-content">
-          <form id="my-awesome-dropzone" class="dropzone" action="@Url.Action("SetEventImages", "Evento")" method="post" enctype="multipart/form-data">
-            <div class="dropzone-previews"></div>
-          </form>
-        </div>
+    <div class="col-sm-8">
+      <div class="title-action">
+        @Html.ActionLink("I miei eventi", "Index", null, new { @class = "btn btn-primary" })
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="ibox float-e-margins">
-        <div class="ibox-title">
-          <h5>@Model.Nome</h5>
+
+  <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-content">
+            <form id="my-awesome-dropzone" class="dropzone" action="@Url.Action("SetEventImages", "Evento")" method="post" enctype="multipart/form-data">
+              <div class="dropzone-previews"></div>
+            </form>
+          </div>
         </div>
-        <div class="ibox-content">
+      </div>
+    </div>
 
-          @using (Html.BeginForm())
-          {
-            @Html.AntiForgeryToken()
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>@Model.Evento.Nome</h5>
+          </div>
+          <div class="ibox-content">
 
-            <div class="form-horizontal">
+            @using (Html.BeginForm())
+            {
+              @Html.AntiForgeryToken()
 
-              @Html.ValidationSummary(true)
-              @Html.HiddenFor(model => model.Id)
+              <div class="form-horizontal">
 
-              <div class="form-group">
-                @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                  @Html.EditorFor(model => model.Nome)
-                  @Html.ValidationMessageFor(model => model.Nome)
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Evento.Id)
+
+                <div class="form-group">
+                  @Html.LabelFor(model => model.Evento.Nome, new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                    @Html.EditorFor(model => model.Evento.Nome)
+                    @Html.ValidationMessageFor(model => model.Evento.Nome)
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  @Html.LabelFor(model => model.Evento.Descrizione, new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                    @Html.EditorFor(model => model.Evento.Descrizione)
+                    @Html.ValidationMessageFor(model => model.Evento.Descrizione)
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  @Html.LabelFor(model => model.Evento.DataInizio, new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                    @Html.EditorFor(model => model.Evento.DataInizio)
+                    @Html.ValidationMessageFor(model => model.Evento.DataInizio)
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  @Html.LabelFor(model => model.Evento.DataFine, new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                    @Html.EditorFor(model => model.Evento.DataFine)
+                    @Html.ValidationMessageFor(model => model.Evento.DataFine)
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  @Html.LabelFor(model => model.Evento.Luogo, new { @class = "control-label col-md-2" })
+                  <div class="col-md-10">
+                    @Html.EditorFor(model => model.Evento.Luogo)
+                    @Html.ValidationMessageFor(model => model.Evento.Luogo)
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white" })
+                  </div>
                 </div>
               </div>
+            }
 
-              <div class="form-group">
-                @Html.LabelFor(model => model.Descrizione, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                  @Html.EditorFor(model => model.Descrizione)
-                  @Html.ValidationMessageFor(model => model.Descrizione)
-                </div>
-              </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-              <div class="form-group">
-                @Html.LabelFor(model => model.DataInizio, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                  @Html.EditorFor(model => model.DataInizio)
-                  @Html.ValidationMessageFor(model => model.DataInizio)
-                </div>
-              </div>
-
-              <div class="form-group">
-                @Html.LabelFor(model => model.DataFine, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                  @Html.EditorFor(model => model.DataFine)
-                  @Html.ValidationMessageFor(model => model.DataFine)
-                </div>
-              </div>
-
-              <div class="form-group">
-                @Html.LabelFor(model => model.Luogo, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                  @Html.EditorFor(model => model.Luogo)
-                  @Html.ValidationMessageFor(model => model.Luogo)
-                </div>
-              </div>
-
-
-              <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                  <input type="submit" value="Save" class="btn btn-primary" />
-                  @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white" })
-                </div>
-              </div>
+    @* Milonghe e Lezioni *@
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>Milonghe</h5>
+            <div class="ibox-tools">
+              @Html.ActionLink("Aggiungi milonga", "CreateMilonga", "Attivita", new { eventoId = Model.Evento.Id }, new { @class = "btn btn-primary btn-xs" })
             </div>
-          }
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  @* Milonghe e Lezioni *@
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="ibox float-e-margins">
-        <div class="ibox-title">
-          <h5>Milonghe</h5>
-        </div>
-        <div class="ibox-content">
-
+          </div>
+          <div class="ibox-content">
+            @Html.Partial("_ListaMilonghe", Model.Milonghe)
         </div>
       </div>
     </div>
@@ -128,8 +128,12 @@
       <div class="ibox float-e-margins">
         <div class="ibox-title">
           <h5>Lezioni</h5>
+          <div class="ibox-tools">
+            @Html.ActionLink("Aggiungi lezione", "CreateLezione", "Attivita", new { eventoId = Model.Evento.Id }, new { @class = "btn btn-primary btn-xs" })
+          </div>
         </div>
         <div class="ibox-content">
+          @Html.Partial("_ListaLezioni", Model.Lezioni)
         </div>
       </div>
     </div>
@@ -147,7 +151,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 
@@ -173,7 +177,7 @@
 
         // Dropzone settings
         init: function () {
-          var eventId = "@Model.Id";
+          var eventId = "@Model.Evento.Id";
           this.on("sending", function (file, xhr, formData) {
             formData.append("EventId", eventId);
           });
@@ -194,7 +198,7 @@
         // Dropzone settings
         init: function () {
           this.on("sending", function (file, xhr, formData) {
-            formData.append("EventId", "@Model.Id");
+            formData.append("EventId", "@Model.Evento.Id");
           });
           this.on("success", function (files, response) {
           });

@@ -20,11 +20,9 @@ namespace TangOrganizer.Model.Models.Mapping
                 .HasMaxLength(300);
 
             this.Property(t => t.AuthInfo_CreatoDa)
-                .IsRequired()
                 .HasMaxLength(255);
 
             this.Property(t => t.AuthInfo_ModificatoDa)
-                .IsRequired()
                 .HasMaxLength(255);
 
             this.Property(t => t.AuthInfo_UserId)

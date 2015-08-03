@@ -1,0 +1,179 @@
+﻿@model TangOrganizer.Model.Models.Attivita
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Edit</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Edit</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+			@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary"})
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Edit Attivita</h5>
+                </div>
+                <div class="ibox-content">
+
+				@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tipo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tipo)
+                @Html.ValidationMessageFor(model => model.Tipo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome)
+                @Html.ValidationMessageFor(model => model.Nome)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descrizione, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descrizione)
+                @Html.ValidationMessageFor(model => model.Descrizione)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataInizio, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataInizio)
+                @Html.ValidationMessageFor(model => model.DataInizio)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataFine, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataFine)
+                @Html.ValidationMessageFor(model => model.DataFine)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Luogo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Luogo)
+                @Html.ValidationMessageFor(model => model.Luogo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LimiteIscrizioni, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LimiteIscrizioni)
+                @Html.ValidationMessageFor(model => model.LimiteIscrizioni)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cancellato, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cancellato)
+                @Html.ValidationMessageFor(model => model.Cancellato)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuthInfo_DataCreazione, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AuthInfo_DataCreazione)
+                @Html.ValidationMessageFor(model => model.AuthInfo_DataCreazione)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuthInfo_CreatoDa, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AuthInfo_CreatoDa)
+                @Html.ValidationMessageFor(model => model.AuthInfo_CreatoDa)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuthInfo_DataUltimaModifica, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AuthInfo_DataUltimaModifica)
+                @Html.ValidationMessageFor(model => model.AuthInfo_DataUltimaModifica)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuthInfo_ModificatoDa, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AuthInfo_ModificatoDa)
+                @Html.ValidationMessageFor(model => model.AuthInfo_ModificatoDa)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuthInfo_UserId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AuthInfo_UserId)
+                @Html.ValidationMessageFor(model => model.AuthInfo_UserId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventoId, "EventoId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("EventoId", String.Empty)
+                @Html.ValidationMessageFor(model => model.EventoId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+				@Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white"})
+            </div>
+        </div>
+    </div>
+}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

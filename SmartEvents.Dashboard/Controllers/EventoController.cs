@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using TangOrganizer.Dashboard.Models;
 using TangOrganizer.Model.Models;
 using TangOrganizer.Service;
+using TipoAttivita = TangOrganizer.Model.Models.Enums.TipoAttivita;
 
 namespace TangOrganizer.Dashboard.Controllers
 {
@@ -36,7 +39,14 @@ namespace TangOrganizer.Dashboard.Controllers
       {
         return HttpNotFound();
       }
-      return View(evento);
+      var eventoVm = new EventoViewModel
+      {
+        Evento = evento,
+        Milonghe = evento.Attivitas.Where(x=>x.Tipo == (int)TipoAttivita.Milonga),
+        Lezioni = evento.Attivitas.Where(x=>x.Tipo == (int)TipoAttivita.Lezione)
+
+      };
+      return View(eventoVm);
     }
 
     // GET: /Evento/Create
@@ -68,15 +78,23 @@ namespace TangOrganizer.Dashboard.Controllers
       {
         return HttpNotFound();
       }
-      return View(evento);
+      var eventoVm = new EventoViewModel
+      {
+        Evento = evento,
+        Milonghe = evento.Attivitas.Where(x => x.Tipo == (int)TipoAttivita.Milonga),
+        Lezioni = evento.Attivitas.Where(x => x.Tipo == (int)TipoAttivita.Lezione)
+
+      };
+      return View(eventoVm);
     }
 
     // POST: /Evento/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(Evento evento)
+    public ActionResult Edit(EventoViewModel eventoVm)
     {
-      if (!ModelState.IsValid) return View(evento);
+      var evento = eventoVm.Evento;
+      if (!ModelState.IsValid) return View(eventoVm);
 
       _eventoService.Update(evento);
       return RedirectToAction("Index");

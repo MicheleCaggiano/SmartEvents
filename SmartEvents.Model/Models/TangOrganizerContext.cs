@@ -23,7 +23,6 @@ namespace TangOrganizer.Model.Models
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
-
       modelBuilder.Configurations.Add(new AttivitaMap());
       modelBuilder.Configurations.Add(new EventoMap());
       modelBuilder.Configurations.Add(new PacchettoMap());

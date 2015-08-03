@@ -1,0 +1,139 @@
+﻿@model IEnumerable<TangOrganizer.Model.Models.Attivita>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Index</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <strong>Attivita</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>List of Attivita</h5>
+					<div class="ibox-tools">
+						@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs"})
+					</div>
+                </div>
+                <div class="ibox-content">
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Evento.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataInizio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataFine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LimiteIscrizioni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cancellato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthInfo_DataCreazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthInfo_CreatoDa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthInfo_DataUltimaModifica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthInfo_ModificatoDa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthInfo_UserId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Evento.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataInizio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataFine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Luogo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LimiteIscrizioni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cancellato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthInfo_DataCreazione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthInfo_CreatoDa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthInfo_DataUltimaModifica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthInfo_ModificatoDa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthInfo_UserId)
+        </td>
+        <td>
+			@Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-sm"})
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+        </td>
+    </tr>
+}
+
+</table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+

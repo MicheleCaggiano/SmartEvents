@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TangOrganizer.Model.Models.Attivita>
+
+<table class="table table-striped">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Nome)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.DataInizio)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.DataFine)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.LimiteIscrizioni)
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.DataInizio)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.DataInizio)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.LimiteIscrizioni)
+      </td>
+      <td>
+        @Html.ActionLink("Modifica", "Edit", new { id = item.Id }, new { @class = "btn btn-white btn-sm" })
+        @Html.ActionLink("Cancella", "Delete", new { id = item.Id }, new { @class = "btn btn-white btn-sm" })
+      </td>
+    </tr>
+  }
+
+</table>
+

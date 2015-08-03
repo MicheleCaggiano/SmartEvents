@@ -212,6 +212,9 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Attività\LezioneController.cs" />
+    <Compile Include="Controllers\Attività\MilongaController.cs" />
+    <Compile Include="Controllers\Attività\AttivitaController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -219,6 +222,7 @@
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EventoViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -330,6 +334,10 @@
     <Content Include="Scripts\plugins\pace\pace.min.js" />
     <Content Include="Scripts\plugins\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\plugins\staps\jquery.steps.min.js" />
+    <Content Include="Views\Attivita\Edit.cshtml" />
+    <Content Include="Views\Evento\_ListaMilonghe.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Views\Home\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -364,6 +372,12 @@
     <Content Include="Views\Evento\Details.cshtml" />
     <Content Include="Views\Evento\Edit.cshtml" />
     <Content Include="Views\Evento\Index.cshtml" />
+    <Content Include="Views\Attivita\Create.cshtml" />
+    <Content Include="Views\Attivita\Delete.cshtml" />
+    <Content Include="Views\Attivita\Details.cshtml" />
+    <Content Include="Views\Attivita\Index.cshtml" />
+    <Content Include="Views\Attivita\CreateMilonga.cshtml" />
+    <Content Include="Views\Evento\_ListaLezioni.cshtml" />
     <None Include="Web.EnterpriseLibrary.config" />
     <None Include="Web.Fincons.config">
       <DependentUpon>Web.config</DependentUpon>

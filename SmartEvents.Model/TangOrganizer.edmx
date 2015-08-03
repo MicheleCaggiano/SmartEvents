@@ -123,9 +123,9 @@
         </EntityType>
         <ComplexType Name="AuthInfo" >
           <Property Type="DateTime" Name="DataCreazione" Nullable="false" />
-          <Property Type="String" Name="CreatoDa" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CreatoDa" MaxLength="255" Nullable="true" />
           <Property Type="DateTime" Name="DataUltimaModifica" Nullable="false" />
-          <Property Type="String" Name="ModificatoDa" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="ModificatoDa" MaxLength="255" Nullable="true" />
           <Property Type="String" Name="UserId" MaxLength="100" Nullable="true" />
         </ComplexType>
         <EntityType Name="Attivita">
@@ -166,6 +166,7 @@
           <Property Name="Descrizione" Type="String" MaxLength="Max" Nullable="true" />
           <Property Name="Prezzo" Type="Decimal" ConcurrencyMode="Fixed" DefaultValue="0" Nullable="true" Precision="18" Scale="2" />
           <NavigationProperty Name="Evento" Relationship="TangOrganizer.EventoPacchetto" FromRole="Pacchetto" ToRole="Evento" />
+          <Property Name="AuthInfo" Type="TangOrganizer.AuthInfo" Nullable="false" />
           <Property Name="EventoId" Type="Guid" Nullable="false" />
         </EntityType>
         <Association Name="EventoPacchetto">
