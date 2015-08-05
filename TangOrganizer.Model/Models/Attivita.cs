@@ -13,13 +13,12 @@ namespace TangOrganizer.Model.Models
         public Nullable<System.DateTime> DataInizio { get; set; }
         public Nullable<System.DateTime> DataFine { get; set; }
         public string Luogo { get; set; }
-        public int LimiteIscrizioni { get; set; }
+        public Nullable<int> LimiteIscrizioni { get; set; }
         public bool Cancellato { get; set; }
-        public System.DateTime AuthInfo_DataCreazione { get; set; }
-        public string AuthInfo_CreatoDa { get; set; }
-        public System.DateTime AuthInfo_DataUltimaModifica { get; set; }
-        public string AuthInfo_ModificatoDa { get; set; }
-        public string AuthInfo_UserId { get; set; }
+        public Nullable<System.DateTime> BaseInfo_DataCreazione { get; set; }
+        public string BaseInfo_CreatoDa { get; set; }
+        public Nullable<System.DateTime> BaseInfo_DataUltimaModifica { get; set; }
+        public string BaseInfo_ModificatoDa { get; set; }
         public System.Guid EventoId { get; set; }
         public virtual Evento Evento { get; set; }
     }

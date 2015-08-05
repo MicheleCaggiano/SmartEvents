@@ -77,6 +77,7 @@
     <Folder Include="Lookup\" />
     <Folder Include="Lookup\Tables\" />
     <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployScript\LoadData.sql" />
@@ -87,5 +88,6 @@
     <Build Include="Lookup\Tables\TipoAttivita.sql" />
     <Build Include="Security\Lookup.sql" />
     <Build Include="dbo\Tables\Pacchetto.sql" />
+    <Build Include="dbo\Stored Procedures\CreateUpdateTriggerForAllTables.sql" />
   </ItemGroup>
 </Project>

@@ -19,14 +19,11 @@ namespace TangOrganizer.Model.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(300);
 
-            this.Property(t => t.AuthInfo_CreatoDa)
+            this.Property(t => t.BaseInfo_CreatoDa)
                 .HasMaxLength(255);
 
-            this.Property(t => t.AuthInfo_ModificatoDa)
+            this.Property(t => t.BaseInfo_ModificatoDa)
                 .HasMaxLength(255);
-
-            this.Property(t => t.AuthInfo_UserId)
-                .HasMaxLength(100);
 
             // Table & Column Mappings
             this.ToTable("Evento");
@@ -37,11 +34,10 @@ namespace TangOrganizer.Model.Models.Mapping
             this.Property(t => t.DataFine).HasColumnName("DataFine");
             this.Property(t => t.Luogo).HasColumnName("Luogo");
             this.Property(t => t.Cancellato).HasColumnName("Cancellato");
-            this.Property(t => t.AuthInfo_DataCreazione).HasColumnName("AuthInfo_DataCreazione");
-            this.Property(t => t.AuthInfo_CreatoDa).HasColumnName("AuthInfo_CreatoDa");
-            this.Property(t => t.AuthInfo_DataUltimaModifica).HasColumnName("AuthInfo_DataUltimaModifica");
-            this.Property(t => t.AuthInfo_ModificatoDa).HasColumnName("AuthInfo_ModificatoDa");
-            this.Property(t => t.AuthInfo_UserId).HasColumnName("AuthInfo_UserId");
+            this.Property(t => t.BaseInfo_DataCreazione).HasColumnName("BaseInfo_DataCreazione");
+            this.Property(t => t.BaseInfo_CreatoDa).HasColumnName("BaseInfo_CreatoDa");
+            this.Property(t => t.BaseInfo_DataUltimaModifica).HasColumnName("BaseInfo_DataUltimaModifica");
+            this.Property(t => t.BaseInfo_ModificatoDa).HasColumnName("BaseInfo_ModificatoDa");
         }
     }
 }

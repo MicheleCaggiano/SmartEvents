@@ -217,6 +217,7 @@
     <Compile Include="Controllers\Attività\AttivitaController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PacchettoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -378,6 +379,11 @@
     <Content Include="Views\Attivita\CreateLezione.cshtml" />
     <Content Include="Views\Attivita\EditLezione.cshtml" />
     <Content Include="Views\Attivita\EditMilonga.cshtml" />
+    <Content Include="Views\Pacchetto\Create.cshtml" />
+    <Content Include="Views\Pacchetto\Delete.cshtml" />
+    <Content Include="Views\Pacchetto\Details.cshtml" />
+    <Content Include="Views\Pacchetto\Edit.cshtml" />
+    <Content Include="Views\Pacchetto\Index.cshtml" />
     <None Include="Web.EnterpriseLibrary.config" />
     <None Include="Web.Fincons.config">
       <DependentUpon>Web.config</DependentUpon>

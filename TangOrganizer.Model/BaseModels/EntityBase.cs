@@ -2,10 +2,10 @@
 {
   public class EntityBase
   {
-    public System.DateTime AuthInfo_DataCreazione { get; set; }
-    public string AuthInfo_CreatoDa { get; set; }
-    public System.DateTime AuthInfo_DataUltimaModifica { get; set; }
-    public string AuthInfo_ModificatoDa { get; set; }
-    public string AuthInfo_UserId { get; set; }
+    public System.DateTime BaseInfo_DataCreazione { get; set; }
+    public string BaseInfo_CreatoDa { get; set; }
+    public System.DateTime BaseInfo_DataUltimaModifica { get; set; }
+    public string BaseInfo_ModificatoDa { get; set; }
+    public string BaseInfo_UserId { get; set; }
   }
 }

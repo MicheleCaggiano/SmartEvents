@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/03/2015 16:23:17
+-- Date Created: 08/05/2015 17:18:47
 -- Generated from EDMX file: C:\Users\Caggiano\Source\Repos\SmartEvents\TangOrganizer.Model\TangOrganizer.edmx
 -- --------------------------------------------------
 
@@ -28,11 +28,11 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Evento]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Evento];
-GO
 IF OBJECT_ID(N'[dbo].[Attivita]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Attivita];
+GO
+IF OBJECT_ID(N'[dbo].[Evento]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Evento];
 GO
 IF OBJECT_ID(N'[dbo].[Pacchetto]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Pacchetto];
@@ -50,12 +50,11 @@ CREATE TABLE [dbo].[Evento] (
     [DataInizio] datetime  NULL,
     [DataFine] datetime  NULL,
     [Luogo] nvarchar(300)  NOT NULL,
-    [Cancellato] bit  NOT NULL,
-    [AuthInfo_DataCreazione] datetime  NOT NULL,
-    [AuthInfo_CreatoDa] nvarchar(255)  NULL,
-    [AuthInfo_DataUltimaModifica] datetime  NOT NULL,
-    [AuthInfo_ModificatoDa] nvarchar(255)  NULL,
-    [AuthInfo_UserId] nvarchar(100)  NULL
+    [BaseInfo_DataCreazione] datetime  NULL,
+    [BaseInfo_CreatoDa] nvarchar(255)  NULL,
+    [BaseInfo_DataUltimaModifica] datetime  NULL,
+    [BaseInfo_ModificatoDa] nvarchar(255)  NULL,
+    [BaseInfo_Eliminato] bit  NOT NULL
 );
 GO
 
@@ -64,18 +63,17 @@ CREATE TABLE [dbo].[Attivita] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Tipo] int  NOT NULL,
     [Nome] nvarchar(100)  NOT NULL,
-    [Maestri] nvarchar(100)  NOT NULL,
+    [Maestri] nvarchar(100)  NULL,
     [Descrizione] nvarchar(max)  NULL,
     [DataInizio] datetime  NULL,
     [DataFine] datetime  NULL,
     [Luogo] nvarchar(300)  NULL,
-    [LimiteIscrizioni] int  NOT NULL,
-    [Cancellato] bit  NOT NULL,
-    [AuthInfo_DataCreazione] datetime  NOT NULL,
-    [AuthInfo_CreatoDa] nvarchar(255)  NULL,
-    [AuthInfo_DataUltimaModifica] datetime  NOT NULL,
-    [AuthInfo_ModificatoDa] nvarchar(255)  NULL,
-    [AuthInfo_UserId] nvarchar(100)  NULL,
+    [LimiteIscrizioni] int  NULL,
+    [BaseInfo_DataCreazione] datetime  NULL,
+    [BaseInfo_CreatoDa] nvarchar(255)  NULL,
+    [BaseInfo_DataUltimaModifica] datetime  NULL,
+    [BaseInfo_ModificatoDa] nvarchar(255)  NULL,
+    [BaseInfo_Eliminato] bit  NOT NULL,
     [EventoId] uniqueidentifier  NOT NULL
 );
 GO
@@ -86,11 +84,11 @@ CREATE TABLE [dbo].[Pacchetto] (
     [Nome] nvarchar(200)  NOT NULL,
     [Descrizione] nvarchar(max)  NULL,
     [Prezzo] decimal(18,2)  NULL,
-    [AuthInfo_DataCreazione] datetime  NOT NULL,
-    [AuthInfo_CreatoDa] nvarchar(255)  NULL,
-    [AuthInfo_DataUltimaModifica] datetime  NOT NULL,
-    [AuthInfo_ModificatoDa] nvarchar(255)  NULL,
-    [AuthInfo_UserId] nvarchar(100)  NULL,
+    [BaseInfo_DataCreazione] datetime  NULL,
+    [BaseInfo_CreatoDa] nvarchar(255)  NULL,
+    [BaseInfo_DataUltimaModifica] datetime  NULL,
+    [BaseInfo_ModificatoDa] nvarchar(255)  NULL,
+    [BaseInfo_Eliminato] bit  NOT NULL,
     [EventoId] uniqueidentifier  NOT NULL
 );
 GO

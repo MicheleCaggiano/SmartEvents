@@ -15,7 +15,7 @@ namespace TangOrganizer.Service
 
     public List<Evento> GetEvents(int skip, int take)
     {
-      return FindAll().OrderByDescending(x => x.AuthInfo_DataCreazione)
+      return FindAll().OrderByDescending(x => x.BaseInfo_DataCreazione)
       .Skip(skip).Take(take).ToList();
     }
 
@@ -28,10 +28,6 @@ namespace TangOrganizer.Service
     /// <returns>True if no errors occurs, False otherwise</returns>
     public bool Save(Evento evento, string userName, string userId)
     {
-      evento.Id = Guid.NewGuid();
-      evento.AuthInfo_DataCreazione = evento.AuthInfo_DataUltimaModifica = DateTime.Now;
-      evento.AuthInfo_CreatoDa = evento.AuthInfo_ModificatoDa = userName;
-      evento.AuthInfo_UserId = userId;
       return base.Save(evento);
     }
   }

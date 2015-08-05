@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PacchettoService.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="AttivitaService.cs" />
     <Compile Include="EventoService.cs" />

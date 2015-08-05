@@ -22,9 +22,6 @@ namespace TangOrganizer.Service
     /// <returns>True if no errors occurs, False otherwise</returns>
     public bool Save(Attivita attivita, string userName, string userId)
     {
-      attivita.AuthInfo_DataCreazione = attivita.AuthInfo_DataUltimaModifica = DateTime.Now;
-      attivita.AuthInfo_CreatoDa = attivita.AuthInfo_ModificatoDa = userName;
-      attivita.AuthInfo_UserId = userId;
       return base.Save(attivita);
     }
   }
