@@ -24,11 +24,28 @@ namespace TangOrganizer.Service
     /// </summary>
     /// <param name="evento"></param>
     /// <param name="userName"></param>
-    /// <param name="userId"></param>
     /// <returns>True if no errors occurs, False otherwise</returns>
-    public bool Save(Evento evento, string userName, string userId)
+    public bool Save(Evento evento, string userName)
     {
+      evento.Id = Guid.NewGuid();
+      evento.BaseInfo_CreatoDa = evento.BaseInfo_ModificatoDa = userName;
+      evento.BaseInfo_DataCreazione = evento.BaseInfo_DataUltimaModifica = DateTime.Now;
+      
       return base.Save(evento);
+    }
+
+    /// <summary>
+    /// Update event
+    /// </summary>
+    /// <param name="evento"></param>
+    /// <param name="userName"></param>
+    /// <returns>True if no errors occurs, False otherwise</returns>
+    public bool Update(Evento evento, string userName)
+    {
+      evento.BaseInfo_ModificatoDa = userName; 
+      evento.BaseInfo_DataUltimaModifica = DateTime.Now;
+
+      return base.Update(evento);
     }
   }
 }

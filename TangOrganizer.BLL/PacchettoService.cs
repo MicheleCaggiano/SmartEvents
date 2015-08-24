@@ -18,11 +18,24 @@ namespace TangOrganizer.Service
     /// </summary>
     /// <param name="pacchetto"></param>
     /// <param name="userName"></param>
-    /// <param name="userId"></param>
     /// <returns>True if no errors occurs, False otherwise</returns>
-    public bool Save(Pacchetto pacchetto, string userName, string userId)
+    public bool Save(Pacchetto pacchetto, string userName)
     {
       pacchetto.BaseInfo_CreatoDa = pacchetto.BaseInfo_ModificatoDa = userName;
+      pacchetto.BaseInfo_DataCreazione = pacchetto.BaseInfo_DataUltimaModifica = DateTime.Now;
+      return base.Save(pacchetto);
+    }
+
+    /// <summary>
+    /// Update pacchetto
+    /// </summary>
+    /// <param name="pacchetto"></param>
+    /// <param name="userName"></param>
+    /// <returns>True if no errors occurs, False otherwise</returns>
+    public bool Update(Pacchetto pacchetto, string userName)
+    {
+      pacchetto.BaseInfo_ModificatoDa = userName;
+      pacchetto.BaseInfo_DataUltimaModifica = DateTime.Now;
       return base.Save(pacchetto);
     }
   }

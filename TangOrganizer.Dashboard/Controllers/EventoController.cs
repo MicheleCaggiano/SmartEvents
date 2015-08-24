@@ -62,7 +62,7 @@ namespace TangOrganizer.Dashboard.Controllers
     {
       if (!ModelState.IsValid) return View(evento);
 
-      _eventoService.Save(evento, User.Identity.Name, User.Identity.GetUserId());
+      _eventoService.Save(evento, User.Identity.Name);
       return RedirectToAction("Edit", new { id = evento.Id });
     }
 
@@ -96,7 +96,7 @@ namespace TangOrganizer.Dashboard.Controllers
       var evento = eventoVm.Evento;
       if (!ModelState.IsValid) return View(eventoVm);
 
-      _eventoService.Update(evento);
+      _eventoService.Update(evento, User.Identity.Name);
       return RedirectToAction("Index");
     }
 

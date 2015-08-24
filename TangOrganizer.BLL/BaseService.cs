@@ -37,7 +37,7 @@ namespace TangOrganizer.Service
     public bool Update(T entity)
     {
       if (!Validate(entity)) return false;
-      BaseRepository.Create(entity);
+      BaseRepository.Update(entity);
       return BaseRepository.SaveChanges();
     }
     /// <summary>

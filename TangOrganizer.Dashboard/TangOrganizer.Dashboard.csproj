@@ -217,7 +217,9 @@
     <Compile Include="Controllers\Attività\AttivitaController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PacchettoController.cs" />
+    <Compile Include="Controllers\PacchettoController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

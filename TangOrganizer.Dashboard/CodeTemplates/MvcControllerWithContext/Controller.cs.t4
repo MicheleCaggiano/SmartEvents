@@ -44,6 +44,7 @@ using System.Web.Mvc;
 <# foreach (var namespaceName in RequiredNamespaces) { #>
 using <#= namespaceName #>;
 <# } #>
+using <#= Namespace #>.Service;
 
 namespace <#= Namespace #>
 {
@@ -131,9 +132,6 @@ namespace <#= Namespace #>
         // GET: <#= routePrefix #>Create
         public ActionResult Create()
         {
-<# foreach (var property in relatedProperties.Values) { #>
-            ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>");
-<# } #>
             return View();
         }
 
@@ -155,9 +153,6 @@ namespace <#= Namespace #>
             
             <#= entityServiceVariable #>.Save(<#= ModelVariable #>);        
              return RedirectToAction("Index");
-<# foreach (var property in relatedProperties.Values) { #>
-            ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>", <#= ModelVariable #>.<#= property.ForeignKeyPropertyNames[0] #>);
-<# } #>
         }
 
         // GET: <#= routePrefix #>Edit/5
@@ -180,9 +175,7 @@ namespace <#= Namespace #>
             {
                 return HttpNotFound();
             }
-<# foreach (var property in relatedProperties.Values) { #>
-            ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>", <#= ModelVariable #>.<#= property.ForeignKeyPropertyNames[0] #>);
-<# } #>
+
             return View(<#= ModelVariable #>);
         }
 
@@ -204,9 +197,6 @@ namespace <#= Namespace #>
                             
             <#= entityServiceVariable #>.Update(<#= ModelVariable #>);        
             return RedirectToAction("Index");                    
-<# foreach (var property in relatedProperties.Values) { #>
-            ViewBag.<#= property.ForeignKeyPropertyNames[0] #> = new SelectList(db.<#= property.EntitySetName #>, "<#= property.PrimaryKeyNames[0] #>", "<#= property.DisplayPropertyName #>", <#= ModelVariable #>.<#= property.ForeignKeyPropertyNames[0] #>);
-<# } #>
         }
 
         // GET: <#= routePrefix #>Delete/5
