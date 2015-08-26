@@ -102,8 +102,9 @@ namespace TangOrganizer.Dashboard.Controllers
     [ValidateAntiForgeryToken]
     public ActionResult DeleteConfirmed(int id)
     {
+      var pacchetto = _pacchettoesService.FindById(id);      
       _pacchettoesService.DeleteById(id);
-      return RedirectToAction("Index");
+      return RedirectToAction("Edit", "Evento", new { id = pacchetto.EventoId });
     }
   }
 }

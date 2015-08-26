@@ -386,6 +386,7 @@
     <Content Include="Views\Pacchetto\Details.cshtml" />
     <Content Include="Views\Pacchetto\Edit.cshtml" />
     <Content Include="Views\Pacchetto\Index.cshtml" />
+    <Content Include="Views\Evento\_ListaPacchetti.cshtml" />
     <None Include="Web.EnterpriseLibrary.config" />
     <None Include="Web.Fincons.config">
       <DependentUpon>Web.config</DependentUpon>
